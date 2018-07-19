@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #f5f5f5">
+		<div id="app">
+				<div class="header_view"  style="background-color: rgba(0,0,0,0);z-index: 9;border: none;">
+			        <img src="../img/left.png" onclick="backto()">
+			        <p>代理中心</p>
+			        <p></p>
+			        
+			      </div>
+		<div class="topcolor" style="margin-top: 0;height: 2.333rem">
+		<img src="../img/touxiang.png"  class="exten_image"  style="bottom: -25%" />
+		<p style="bottom: -55%">爱整形</p>
+			
+		</div>
+
+		<div class="whiteview"></div>
+
+
+
+		<div class="exten_money">
+			<p>可提现的收益</p>
+			<p>
+				<span>￥5200</span>
+				<span @click="goto('user_cash.html')">去提现></span>
+
+
+			</p>
+
+		</div>
+
+		<div class="exten_list">
+
+			<div>
+				<p>20.00</p>
+				<p>待到账收益</p>
+
+			</div>
+			<div>
+				<p>100.00</p>
+				<p>当月收益</p>
+
+			</div>
+			<div>
+				<p>10230.00</p>
+				<p>当月销售额</p>
+
+			</div>
+			
+
+
+		</div>
+
+
+
+		<div class="listtwo">
+			
+			<p>
+		<img src="../img/vip.png" />
+			<span>邀请VIP会员</span>
+			</p>
+
+			<p>
+		<img src="../img/jianli.png" />
+				<span>邀请成为代理</span>
+			</p>
+
+		</div>
+
+
+		<div class="my_exten">
+			<p @click="goto('user_consumption.html')">
+				<span>536</span>
+				<span>我的消费者</span>
+			</p>
+			<p @click="goto('user_agent.html')">
+				<span>56</span>
+				<span>我的代理商</span>
+			</p>
+
+
+		</div>
+
+		<div class="lastview">
+			<div @click="goto('user_Extension_people.html')">
+		<img src="../img/toppeople.png" />
+		<p>我的上级</p>
+
+				
+
+			</div>
+
+			<div @click="goto('user_Extension_detail.html')">
+		<img src="../img/tuiguang.png" />
+		<p>我推广的订单明细</p>
+
+				
+
+			</div>
+			
+
+		</div>
+
+
+
+
+
+
+		
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		allshow:false,
+      		
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        checknum(e){
+        this.shoparr[e].show=!this.shoparr[e].show
+
+        },
+        goto(e){
+        	window.location.href=e
+        
+
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

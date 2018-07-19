@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #ffffff">
+		<div id="app">
+				<div class="header_view" >
+        <img src="../img/left.png" onclick="backto()">
+        <p>支付成功</p>
+        <p></p>
+        
+      </div>
+
+      	<div class="payed">
+      		<div>
+      			<p>点击图标，马上邀请好友下单</p>
+
+      			<div>
+      				<img src="../img/weixin.png" @click="goto('../H5/Successful_Collage.html')">
+      				<img src="../img/pengyou.png">
+
+      			</div>
+      		</div>
+      		
+
+      	</div>
+      	<div class="payed_list">
+      		<p class="payed_list_top">
+      			<span v-for="i in 8">
+      				
+                <img src="../img/bluewhie.png" v-if="i==1">
+      			</span>
+      			
+      		</p>
+      		<p class="pay_p">
+      			<span>名称：</span>	
+      			<span>【仅限鹿城区，20分钟送达】【苹果特....</span>
+      		</p>
+      		<p class="pay_p">
+      			<span>购买者：</span>
+      			<span>一笑 1263787372</span>
+      		</p>
+      		
+
+      	</div>
+
+
+      	<div class="pingtuan">
+
+      	<div class="time_out">一键拼团</div>
+      	<p @click="showme">点击查看></p>
+      		
+
+      	</div>
+
+
+      	<div class="bgback" v-if="payedshow">
+      		
+
+      		<div class="payed_bg">
+
+      			<p>拼单活动说明：</p>
+      			<p>达到拼单人数，分别给拼主和购买者发送服务
+核销码</p>
+<p>·未达到拼单人数，款项将自动原路返还</p>
+
+      			<img src="../img/close.png" @click="closeme">
+      			
+
+      		</div>
+      	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+
+		
+
+		
+
+
+
+
+
+
+
+
+
+		
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		allshow:false,
+      		showstyle:false,
+      		card:'',
+      		city:'',
+      		cardnum:'',
+      		bank:'',
+      		idcard:'',
+      		phone:'',
+      		cash:'',
+      		bgshow:false,
+      		payedshow:false
+
+      		
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        goto(e){
+          window.location.href = e;
+
+        },
+        changeinput(){
+
+        	if(this.card==''||this.city==''||this.cardnum==''||this.bank==''||this.idcard==''||this.phone==''||this.cash==''){
+        		this.showstyle=false
+        	}else{
+        		this.showstyle=true
+        	}
+
+        },
+        checknum(e){
+        this.shoparr[e].show=!this.shoparr[e].show
+
+        },
+        closeme(){
+        	this.payedshow=false
+        },
+        showme(){
+        	this.payedshow=true
+        },
+        tosend(){
+        	var that=this
+        	if(this.showstyle){
+        		this.bgshow=true;
+        		setTimeout(function(){
+        		that.bgshow=false;
+
+        		},3000)
+
+        	}
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

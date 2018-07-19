@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #f5f5f5">
+		<div id="app">
+
+      
+<div class="header_view herdcolor" >
+        <img src="../img/left.png" onclick="backto()" >
+        <p>我的订单</p>
+        <p></p>
+        
+      </div>
+
+      
+
+      <!-- 分享 -->
+      <div class="sharbg" v-if="sharview" v-cloak>
+        <div>
+          <img src="../img/close.png" @click="closeview">
+
+          <p v-for="item in iconarr">
+            <img :src="item.url">
+            <span>{{item.text}}</span>
+
+          </p>
+          
+
+        </div>
+
+      </div>
+
+
+      <!-- 提示 -->
+
+      <div class="bgback" v-if="bgshow"  v-cloak>
+  
+  <div class="lose_text" v-if='lose_show'>
+    <p>拼单失败的订单金额，将会自动原路，一般
+24小时将退款完成，耐心等待，如有异常，
+请及时与平台联系！</p>
+  <div>
+    <p @click="call">联系平台</p>
+    <p @click="closeviewbg">我知道啦！</p>
+  </div>
+
+
+
+  </div>
+
+  <div class="call" v-if="callshow">
+    <div>
+      <p>18017360909</p>
+    <p>确认要拨打电话嘛？</p>
+      
+    </div>
+    
+
+    <div>
+      
+      <p @click="closeviewbg">取消</p>
+      <p @click='callphone'>确定</p>
+
+    </div>
+
+   </div>
+
+</div>
+
+
+
+      <div class="order_head">
+        <p :class="ordernum==1?'order_active':''"  @click='ordernum=1'>全部</p>
+        <p :class="ordernum==2?'order_active':''"  @click='ordernum=2'>待付款</p>
+        <p :class="ordernum==3?'order_active':''"  @click='ordernum=3'>待分享</p>
+        <p :class="ordernum==4?'order_active':''"  @click='ordernum=4'>未使用</p>
+        <p :class="ordernum==5?'order_active':''" @click='ordernum=5'>待评价</p>
+        <p :class="ordernum==6?'order_active':''" @click='ordernum=6'>待集赞</p>
+
+
+        
+      </div>
+
+
+      <div class="order_center">
+
+
+
+          <!-- 全部 -->
+        <div v-if='ordernum==1' class="paywating">
+
+
+          <div class="no_user">
+
+            <div class="no_user_top">
+              <img src="../img/logo.png">
+              <p >订单已取消</p>
+
+
+            </div>
+            <div class="no_user_center">
+              <div>
+                <img src="../img/bluewhie.png">
+              <div>
+                <p>【鼻综合】上海鼻综合整形名医
+ 上海鼻综合整形名医</p>
+ <p>
+  <span>郑林林</span>
+  <span>数量1</span>
+   </p>
+ <p>
+   <span>
+<span>￥5200</span>
+   <span>￥8600</span>
+    
+
+   </span>
+
+ </p>
+              </div>
+                
+              </div>
+              <p>
+                
+                <span>预付款合计：￥490</span>
+                <span>到院支付合计：￥4900</span>
+              </p>
+              
+
+
+            </div>
+            <div class="no_user_bot">
+               
+              <p style="margin-right: 0">删除订单</p>
+              
+              <span></span>
+
+
+            </div>
+
+            
+
+          </div>
+
+
+          <div class="no_user">
+
+            <div class="no_user_top">
+              <img src="../img/logo.png">
+              <p >拼单失败，已退款</p>
+
+
+            </div>
+            <div class="no_user_center" @click="goto('user_refun.html')">
+              <div>
+                <img src="../img/bluewhie.png">
+              <div>
+                <p>【鼻综合】上海鼻综合整形名医
+ 上海鼻综合整形名医</p>
+ <p>
+  <span>郑林林</span>
+  <span>数量1</span>
+   </p>
+ <p>
+   <span>
+<span>￥5200</span>
+   <span>￥8600</span>
+    
+
+   </span>
+
+ </p>
+              </div>
+                
+              </div>
+              <p>
+                
+                <span>预付款合计：￥490</span>
+                <span>到院支付合计：￥4900</span>
+              </p>
+              
+
+
+            </div>
+            <div class="no_user_bot">
+              <p >删除订单</p>
+
+               <p @click="tuisend">退款进度</p>
+              
+              <span></span>
+
+
+            </div>
+
+            
+
+          </div>
+
+
+
+          <p class="nomore">
+        <span></span> 
+
+      没有更多了哦
+        <span></span> 
+
+    </p>
+          
+        </div>
+         <!-- 待付款 -->
+        <div v-if='ordernum==2' class="paywating">
+          <div class="no_user">
+
+            <div class="no_user_top">
+              <img src="../img/logo.png">
+              <p>待付款</p>
+
+
+            </div>
+            <div class="no_user_center"  @click="goto('user_order_paydetail.html')">
+              <div>
+                <img src="../img/bluewhie.png">
+              <div>
+                <p>【鼻综合】上海鼻综合整形名医
+ 上海鼻综合整形名医</p>
+ <p>
+  <span>郑林林</span>
+  <span>数量1</span>
+   </p>
+ <p>
+   <span>
+<span>￥5200</span>
+   <span>￥8600</span>
+    
+
+   </span>
+
+ </p>
+              </div>
+                
+              </div>
+              <p>
+                
+                <span>预付款合计：￥490</span>
+                <span>到院支付合计：￥4900</span>
+              </p>
+              
+
+
+            </div>
+            <div class="no_user_bot">
+               <p>取消订单</p>
+              <p>立即支付</p>
+              
+              <span>已使用200元优惠券</span>
+
+
+            </div>
+
+            
+
+          </div>
+
+
+          <p class="nomore">
+        <span></span> 
+
+      没有更多了哦
+        <span></span> 
+
+    </p>
+          
+        </div>
+          
+        </div>
+         <!-- 待分享 -->
+        <div v-if='ordernum==3'>
+          <div class="no_user">
+
+            <div class="no_user_top">
+              <img src="../img/logo.png">
+              <p>待分享，差1人拼团成功</p>
+
+
+            </div>
+            <div class="no_user_center"  @click="goto('user_order_shar.html')">
+              <img src="../img/bluewhie.png">
+              <div>
+                <p>【鼻综合】上海鼻综合整形名医
+ 上海鼻综合整形名医</p>
+ <p>
+  <span>郑林林</span>
+  <span></span>
+   </p>
+ <p>
+   <span>
+<span>￥5200</span>
+   <span>￥8600</span>
+    
+
+   </span>
+
+ </p>
+              </div>
+              
+
+
+            </div>
+            <div class="no_user_bot">
+              <p @click="openshar" style="margin-right: 0">邀请好友一起分享</p>
+              
+
+
+            </div>
+
+            
+
+          </div>
+
+
+          <p class="nomore">
+        <span></span> 
+
+      没有更多了哦
+        <span></span> 
+
+    </p>
+          
+        </div>
+         <!-- 未使用 -->
+        <div v-if='ordernum==4'>
+          
+
+          <div class="no_user">
+
+            <div class="no_user_top">
+              <img src="../img/logo.png">
+              <p>请到院使用</p>
+
+
+            </div>
+            <div class="no_user_center" @click="goto('user_order_nouser.html')">
+              <img src="../img/bluewhie.png">
+              <div>
+                <p>【鼻综合】上海鼻综合整形名医
+ 上海鼻综合整形名医</p>
+ <p>
+  <span>郑林林</span>
+  <span></span>
+   </p>
+ <p>
+   <span>
+<span>￥5200</span>
+   <span>￥8600</span>
+    
+
+   </span>
+
+ </p>
+              </div>
+              
+
+
+            </div>
+            <div class="no_user_bot">
+              <p>查看使用码</p>
+              <p @click="call">联系客服</p>
+              
+
+
+            </div>
+
+            
+
+          </div>
+
+
+          <p class="nomore">
+        <span></span> 
+
+      没有更多了哦
+        <span></span> 
+
+    </p>
+          
+        </div>
+         <!-- 待评价 -->
+        <div v-if='ordernum==5' class="ping">
+          <div class="no_user">
+
+            <div class="no_user_top">
+              <img src="../img/logo.png">
+              <p>等待评价</p>
+
+
+            </div>
+            <div class="no_user_center" @click="goto('user_order_evaluate.html')">
+              <img src="../img/bluewhie.png">
+              <div>
+                <p>【鼻综合】上海鼻综合整形名医
+ 上海鼻综合整形名医</p>
+ <p>
+  <span>郑林林</span>
+  <span>数量1</span>
+   </p>
+ <p>
+   <span>
+<span>￥5200</span>
+   <span>￥8600</span>
+    
+
+   </span>
+
+ </p>
+              </div>
+              
+
+
+            </div>
+            <div class="no_user_bot">
+              <p>意见反馈</p>
+              <p @click="goto('user_order_evaluate.html')">评价</p>
+              <span>分享评价，可以集赞返现哦</span>
+
+
+            </div>
+
+            
+
+          </div>
+
+
+          <p class="nomore">
+        <span></span> 
+
+      没有更多了哦
+        <span></span> 
+
+    </p>
+          
+        </div>
+        <!-- 待集赞 -->
+        <div v-if='ordernum==6'>
+          <div class="no_user">
+
+            <div class="no_user_top">
+              <img src="../img/logo.png">
+              <p>集X个赞，返现Y元哦，还差3个赞哦</p>
+
+
+            </div>
+            <div class="no_user_center" @click="goto('user_order_good.html')">
+              <img src="../img/bluewhie.png">
+              <div>
+                <p>【鼻综合】上海鼻综合整形名医
+ 上海鼻综合整形名医</p>
+ <p>
+  <span>郑林林</span>
+  <span>数量1</span>
+   </p>
+ <p>
+   <span>
+<span>￥5200</span>
+   <span>￥8600</span>
+    
+
+   </span>
+
+ </p>
+              </div>
+              
+
+
+            </div>
+            <div class="no_user_bot">
+              <p>追加评价</p>
+              <p>立即分享</p>
+              
+
+
+            </div>
+
+            
+
+          </div>
+
+
+          <p class="nomore">
+        <span></span> 
+
+      没有更多了哦
+        <span></span> 
+
+    </p>
+          
+        </div>
+
+
+      </div>
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		allshow:false,
+          ordernum:1,
+          bgshow:false,
+          lose_show:false,
+          callshow:false,
+          popupVisible:true,
+          sharview:false,
+          iconarr:[
+              {
+                url:'../img/weixin.png',
+                text:'微信'
+              },
+              {
+                url:'../img/pengyou.png',
+                text:'朋友圈'
+              },
+              {
+                url:'../img/qq.png',
+                text:'QQ'
+              },
+              {
+                url:'../img/qqkong.png',
+                text:'QQ空间'
+              },
+              {
+                url:'../img/xinlan.png',
+                text:'新浪'
+              }
+          ]
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        checknum(e){
+        this.shoparr[e].show=!this.shoparr[e].show
+
+        },
+        backto(){
+          window.history.back();
+        },
+        goto(e){
+          window.location.href = e;
+
+        },
+        tuisend(){
+          this.bgshow=true
+          this.lose_show=true
+          this.callshow=false
+
+        },
+        closeviewbg(){
+          this.bgshow=false
+        },
+        call(){
+          this.bgshow=true
+          this.lose_show=false
+          this.callshow=true
+        },
+        closeview(){
+            this.sharview=false
+        },
+        openshar(){
+          this.sharview=true
+        },
+        callphone(){
+          window.location.href = "tel:10086";
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

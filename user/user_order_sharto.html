@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #ffffff">
+		<div id="app">
+
+		<div class="header_view" >
+        <img src="../img/left.png" onclick="backto()">
+        <p>分享给好友</p>
+        <p ></p>
+        
+      </div>
+
+      <div class="sharto_top">
+        
+   <img src="../img/bluewhie.png">
+        <p>林林 </p>
+      </div>
+
+      <img src="../img/doctorman.jpg" style="width: 100%;height: 6.253rem;font-size: 0">
+      <div class="sharto_erwei">
+        <img src="../img/erwei.jpg">
+        <div>
+          <p>上海鼻综合整形名医上海鼻综合整形</p>
+          <p>郑林林 </p>
+          <p>￥5200</p>
+
+        </div>
+        
+
+      </div>
+
+
+      <div class="sharto_icon">
+        
+        <p v-for="item in iconarr">
+          
+          <img :src="item.url">
+          <span>{{item.text}}</span>
+        </p>
+      </div>
+      
+
+
+      
+
+      
+		
+
+		
+
+
+
+		
+		
+
+
+
+		
+
+
+		
+
+	
+
+
+
+
+
+
+		
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		allshow:false,
+      		bgshow:false,
+          iconarr:[
+          {
+                url:'../img/weixin.png',
+                text:'保存画报至本地'
+              },
+              {
+                url:'../img/pengyou.png',
+                text:'壹美画报'
+              },
+              {
+                url:'../img/qq.png',
+                text:'复制链接'
+              },
+              {
+                url:'../img/xinlan.png',
+                text:'新浪'
+              },
+              {
+                url:'../img/weixin.png',
+                text:'微信'
+              },
+              {
+                url:'../img/pengyou.png',
+                text:'朋友圈'
+              },
+              {
+                url:'../img/qq.png',
+                text:'QQ'
+              },
+              {
+                url:'../img/qqkong.png',
+                text:'QQ空间'
+              }
+          ]
+      		
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        checknum(e){
+        this.shoparr[e].show=!this.shoparr[e].show
+
+        },
+        call(){
+        		this.bgshow=true
+        },
+        closeviewbg(){
+        		this.bgshow=false
+
+        },
+        goto(e){
+        	window.location.href=e
+        
+
+        },
+         callphone(){
+          window.location.href = "tel:10086";
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

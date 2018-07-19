@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background:#f5f5f5">
+		<div id="app">
+
+			<div class="header_view" >
+       <p></p>
+        <p>购物车</p>
+        <p></p>
+        <!-- <p style="font-size: 0.32rem" :class="shophasshow?'':'shopdele' ">删除</p> -->
+        
+      </div>
+
+      
+			<div class="page" style="margin-top: 1.067rem">
+				<div class="content">
+
+					<div class="noshopview" v-if="!shophasshow">
+						<img src="../img/noshop.png">
+						<p>购物车空空如也</p>
+						
+					</div>
+
+					<div class="shop_center" v-if="shophasshow">
+
+
+							<mt-cell-swipe
+  :right="[
+    {
+      content: '删除',
+      style: { background: '#fd82b8', color: '#fff',width:'1.733rem',display:'flex'  },
+      handler: () => deleteSection()
+    }
+  ]"   v-for="(item,index) in shoparr">
+
+  <div class="shop_top">
+
+								<span :class="item.show?'radio_active':'' " @click="checknum(index)"></span>
+								<img src="../img/redcolse.png" @click="goto('../user/user_shopcar_detail.html')"/>
+								<p @click="goto('../user/user_shopcar_detail.html')">
+
+									<span>{{item.tittle}}</span>
+									<span>{{item.name}} </span>
+								</p>
+
+							</div>
+							<div class="shop_bot" >
+
+								<div class="bot_shop_left">
+									<span>预约金：￥{{item.pay}}</span>
+									<span>到院再付：￥{{item.money}}</span>
+
+								</div>
+								<div class="bot_shop_right">
+									<span @click="cutnum(index)">-</span>
+									<span>{{item.num}}</span>
+									<span @click="addnum(index)">+</span>
+
+								</div>
+
+							</div>
+   
+    
+
+  </mt-cell-swipe>
+
+						<!-- 	<div v-for="(item,index) in shoparr" >
+
+								<div class="shop_top">
+
+									<span :class="item.show?'radio_active':'' " @click="checknum(index)"></span>
+									<img src="../img/redcolse.png" @click="goto('../user/user_shopcar_detail.html')"/>
+									<p @click="goto('../user/user_shopcar_detail.html')">
+
+										<span>{{item.tittle}}</span>
+										<span>{{item.name}} </span>
+									</p>
+
+								</div>
+								<div class="shop_bot" >
+
+									<div class="bot_shop_left">
+										<span>预约金：￥{{item.pay}}</span>
+										<span>到院再付：￥{{item.money}}</span>
+
+									</div>
+									<div class="bot_shop_right">
+										<span @click="cutnum(index)">-</span>
+										<span>{{item.num}}</span>
+										<span @click="addnum(index)">+</span>
+
+									</div>
+
+								</div>
+							</div> -->
+						
+						
+					
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+					
+					
+					
+					<div class="checkall_pay" v-if="shophasshow">
+						
+						<div class="checkall" @click="checkallshop">
+							
+							<span :class="allshow?'radio_active':'' "></span>
+							<p>全选</p>
+							
+						</div>
+						
+						<div class="pay">
+							
+							<div class="pay_text">
+								<span>预约金额合计</span>
+								<span>￥{{allnum}}</span>
+								
+							</div>
+							<div class="pay_view"  @click="goto('../user/user_shopcar_detail.html')">
+								
+								提交订单
+							</div>
+							
+							
+							
+						</div>
+						
+					</div>
+					</div>
+				</div>
+
+			</div>
+			
+			<mt-tabbar>
+  <mt-tab-item id="外卖" href="../index.html" >
+    <img slot="icon" src="../img/indexhui.png">
+    主页
+  </mt-tab-item>
+  <mt-tab-item id="订单" href="list.html">
+    <img slot="icon" src="../img/list.png">
+    分类
+  </mt-tab-item>
+  <mt-tab-item id="发现" href="shop.html" class="a_active">
+    <img slot="icon" src="../img/shopcolor.png" >
+    购物车
+  </mt-tab-item>
+  <mt-tab-item id="消息" href="message.html">
+    <img slot="icon" src="../img/indexmessage.png">
+    消息
+  </mt-tab-item>
+  <mt-tab-item id="我的" href="user.html">
+    <img slot="icon" src="../img/my.png">
+    我的
+  </mt-tab-item>
+</mt-tabbar>
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		allshow:false,
+      		shophasshow:true,
+      		num:0,
+      		allnum:0,
+      		shoparr:[
+      		{
+      			url:"",
+      			tittle:'【鼻综合】上海鼻综合整形名医大整形名整形整形名医大',
+      			name:'郑志王 ',
+      			pay:388,
+      			money:"899",
+      			show:false,
+      			num:0
+      		},
+      		{
+      			url:"",
+      			tittle:'【鼻综合】上海鼻综合整形名医大整形名整形整形名医大',
+      			name:'郑志王 ',
+      			pay:388,
+      			money:"899",
+      			show:false,
+      			num:0
+      		},
+      		{
+      			url:"",
+      			tittle:'【鼻综合】上海鼻综合整形名医大整形名整形整形名医大',
+      			name:'郑志王 ',
+      			pay:388,
+      			money:"899",
+      			show:false,
+      			num:0
+      		},
+      		{
+      			url:"",
+      			tittle:'【鼻综合】上海鼻综合整形名医大整形名整形整形名医大',
+      			name:'郑志王 ',
+      			pay:388,
+      			money:"899",
+      			show:false,
+      			num:0
+      		}
+      		]
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        checknum(e){
+        this.shoparr[e].show=!this.shoparr[e].show
+
+        },
+        cutnum(e){
+        	if(this.shoparr[e].num>0){
+        	this.shoparr[e].num--
+
+        	}
+        	let numarr=0;
+        	for(let i=0;i<this.shoparr.length;i++){
+        		numarr+=this.shoparr[i].pay*this.shoparr[i].num
+        	}
+        	this.allnum=numarr
+        	
+        },
+        addnum(e){
+        	this.shoparr[e].num++
+        	let numarr=0;
+        	for(let i=0;i<this.shoparr.length;i++){
+        		numarr+=this.shoparr[i].pay*this.shoparr[i].num
+        	}
+        	this.allnum=numarr
+        },
+        goto(e){
+          window.location.href=e
+        },
+        checkallshop(){
+        	
+
+        	if(this.allshow){
+        	let numarr=0;
+
+        		for(let i=0;i<this.shoparr.length;i++){
+        		this.shoparr[i].show=false
+        		numarr+=this.shoparr[i].pay*this.shoparr[i].num
+
+        	}
+        	this.allnum=numarr
+        	this.allshow=false
+
+        	}else{
+        		for(let i=0;i<this.shoparr.length;i++){
+        		this.shoparr[i].show=true
+        	}
+        	this.allshow=true
+        	}
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

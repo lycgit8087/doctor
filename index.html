@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		
+	</head>
+	
+	<style type="text/css">
+		body{
+			margin: 0;
+		}
+	</style>
+	<body>
+		<div id="app">
+			<div class="bgback" v-if="advtershow">
+				<img src="img/advter.png" style="width: 6.027rem;height: 7.48rem">
+				<img src="img/indexclose.png" style="position: absolute;top: 5.293rem;right: 1.747rem;width: 0.76rem;height: 0.76rem" @click="advterhide">
+				
+
+
+			</div>
+			
+			<div class="topview">
+
+				<mt-swipe :auto="4000" style="width: 100%;position: absolute;">
+  <mt-swipe-item><img src="img/indextop.png"  style="height: 100%;width: 100%" /></mt-swipe-item>
+  <mt-swipe-item><img src="img/indextop.png" style="height: 100%;width: 100%"/></mt-swipe-item>
+  <mt-swipe-item><img src="img/indextop.png" style="height: 100%;width: 100%"/></mt-swipe-item>
+</mt-swipe>
+
+
+						<!-- <img src="img/indextop.png" /> -->
+
+						<div class="top_search">
+							<span  @click="goto('home/position.html')">浙江
+						<img src="img/bot.png"/>
+						</span>
+							<input type="text" name="" placeholder="搜索你感兴趣的项目" v-model="inputvalue" :class=" changeinputnone?'indexchanginput':'' " @input="changeme" @focus="goto('home/search_index.html')">
+							<img src="img/messaget.png" />
+						</div>
+					</div>
+
+					<div class="nav_list">
+						<div @click="gotoid(index)" v-for="(item,index) in toplist">
+							<img :src="item.url" />
+							<p>{{item.text}}</p>
+						</div>
+					
+
+					</div>
+
+					<div class="show_message" @click="goto('user/user_shopdetail.html')">
+						<p class="time_out">限时秒杀</p>
+						<img class="image" src="img/whietdot.png" />
+						<p class="show_text">【鼻综合】上海鼻综合整形名医大整形名医大整形名名医大整形名医大整形名</p>
+
+						<div class="hide_name">
+							<span>郑志王</span>
+							<span>还剩5个名额</span>
+							<span>￥5200/次</span>
+
+						</div>
+
+					</div>
+
+					<div class="time_out">一键拼团</div>
+
+					<div class="price">
+
+<mt-swipe :show-indicators="false" style="width: 100%"  :auto="0">
+  <mt-swipe-item style="display: flex;justify-content: space-around;width: 100%">
+  	<div v-for="i in 3" style="width: 30%" @click="goto('H5/shopindexping.html')">
+							<img src="img/bluewhie.png" class="pri_image" />
+
+							<p>上海鼻综合整形</p>
+							<p>医生名字</p>
+							<p>￥5200/次</p>
+
+						</div>
+  </mt-swipe-item>
+  <mt-swipe-item style="display:flex;justify-content: space-around;width: 100%">
+  	<div v-for="i in 3" style="width: 30%"  @click="goto('H5/shopindexping.html')">
+							<img src="img/bluewhie.png" class="pri_image" />
+
+							<p>上海鼻综合整形</p>
+							<p>医生名字</p>
+							<p>￥5200/次</p>
+
+						</div>
+  </mt-swipe-item>
+  <mt-swipe-item style="display:flex;justify-content: space-around;width: 100%">
+  	<div v-for="i in 3" style="width: 30%"  @click="goto('H5/shopindexping.html')">
+							<img src="img/bluewhie.png" class="pri_image" />
+
+							<p>上海鼻综合整形</p>
+							<p>医生名字</p>
+							<p>￥5200/次</p>
+
+						</div>
+  </mt-swipe-item>
+  
+</mt-swipe>
+
+						
+						
+			
+					</div>
+
+					<div class="in_text">
+
+						<p>优选名医</p>
+						<p>十年以上临床经验</p>
+					</div>
+
+
+					<div class="tabview">
+						<span v-on:click="checknum(1)" :class="curnum==1?'view_active':''" id="one">整形专家</span>
+						<span v-on:click="checknum(2)" :class="curnum==2?'view_active':''" class="tabother" id='two'>半永久妆</span>
+						<span v-on:click="checknum(3)" :class="curnum==3?'view_active':''" id="there">皮肤管理</span>
+					</div>
+
+					<div class="view_list">
+						<div v-if="curnum==1">
+
+							<p class="list_index_p">
+								<span v-for="(item,index) in indexarr" @click="indexclick(index)" :class="showstyle==index?'styleavtive':'' ">{{item.text}}</span>
+
+							</p>
+							
+								<div v-for="i in 4" @click="goto('home/doctormessge.html')">
+								<div class="curnum_left">
+									<img src="img/bluewhie.png">
+
+								</div>
+								<div class="curnum_right">
+									
+									<p>郑林林</p>
+									<p>格莱美整形医院</p>
+									<p>
+										
+										<span>案例:268</span>
+										<span>从业15年</span>
+
+									</p>
+									<p>评分 5.0</p>
+
+								</div>
+								</div>
+							
+
+
+
+						</div>
+						<div v-if="curnum==2">
+
+								<p class="list_index_p">
+								<span v-for="(item,index) in indexarr" @click="indexclick(index)" :class="showstyle==index?'styleavtive':'' ">{{item.text}}</span>
+
+							</p>
+							
+								<div v-for="i in 4" @click="goto('home/doctormessge.html')">
+								<div class="curnum_left">
+									<img src="img/bluewhie.png">
+
+								</div>
+								<div class="curnum_right">
+									
+									<p>郑林林</p>
+									<p>格莱美整形医院</p>
+									<p>
+										
+										<span>案例:268</span>
+										<span>从业15年</span>
+
+									</p>
+									<p>评分 5.0</p>
+
+								</div>
+								</div>
+						</div>
+						<div  v-if="curnum==3">
+
+								<p class="list_index_p">
+								<span v-for="(item,index) in indexarr" @click="indexclick(index)" :class="showstyle==index?'styleavtive':'' ">{{item.text}}</span>
+
+							</p>
+							
+								<div v-for="i in 4" @click="goto('home/doctormessge.html')">
+								<div class="curnum_left">
+									<img src="img/bluewhie.png">
+
+								</div>
+								<div class="curnum_right">
+									
+									<p>郑林林</p>
+									<p>格莱美整形医院</p>
+									<p>
+										
+										<span>案例:268</span>
+										<span>从业15年</span>
+
+									</p>
+									<p>评分 5.0</p>
+
+								</div>
+								</div>
+
+						</div>
+
+
+					</div>
+			
+			<mt-tabbar>
+  <mt-tab-item id="外卖" href="index.html" class="a_active" >
+    <img slot="icon" src="img/index.png">
+    主页
+  </mt-tab-item>
+  <mt-tab-item id="订单" href="home/list.html">
+    <img slot="icon" src="img/list.png">
+    分类
+  </mt-tab-item>
+  <mt-tab-item id="发现" href="home/shop.html">
+    <img slot="icon" src="img/shophui.png" >
+    购物车
+  </mt-tab-item>
+  <mt-tab-item id="消息" href="home/message.html">
+    <img slot="icon" src="img/indexmessage.png">
+    消息
+  </mt-tab-item>
+  <mt-tab-item id="我的" href="home/user.html">
+    <img slot="icon" src="img/my.png">
+    我的
+  </mt-tab-item>
+</mt-tabbar>
+			
+			
+			
+			
+  </div>
+		
+		
+		
+	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+			
+		
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		inputvalue:'',
+      		changeinputnone:false,
+      		bgshow:false,
+      		advtershow:true,
+      		showstyle:1,
+      		toplist:[
+      				{
+      					text:"整形专家",
+      					url:'img/dot1.png'
+      				},
+      				{
+      					text:"半永久妆",
+      					url:'img/dot2.png'
+
+      				},
+      				{
+      					text:"皮肤管理",
+      					url:'img/dot3.png'
+
+      				}
+      		],
+      		indexarr:[
+      			{
+      				text:"鼻子"
+
+      			},
+      			{
+      				text:"眼部"
+
+      			},
+      			{
+      				text:"面部轮廓"
+
+      			},
+      			{
+      				text:"美体塑形"
+
+      			},
+      			{
+      				text:"皮肤管理"
+
+      			},
+      			{
+      				text:"鼻子"
+
+      			},
+      			{
+      				text:"鼻子"
+
+      			}
+      		]
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        checknum(e){
+        this.curnum=e;
+
+        },
+        showsearch(){
+        	this.bgshow=true
+        },
+        indexclick(e){
+        		this.showstyle=e
+        },
+        goto(e){
+          window.location.href = e;
+
+        },
+         gotoid(e){
+         this.curnum=e+1
+         if(e==0){
+          window.location.href = '#one'
+
+         }else if(e==1){
+          window.location.href = '#two'
+
+         }else{
+          window.location.href = '#there'
+
+         }
+
+        },
+        advterhide(){
+        	this.advtershow=false
+        },
+        changeme(){
+        	if(this.inputvalue){
+        	this.changeinputnone=true
+
+        }else{
+        	this.changeinputnone=false
+
+        }
+        }
+      }
+    })
+  </script>
+	</body>
+</html>

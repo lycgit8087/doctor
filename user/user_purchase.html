@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #f5f5f5">
+		<div id="app" class="purchase">
+				<div class="header_view" >
+        <img src="../img/left.png" onclick="backto()">
+        <p>我的订单</p>
+        <p></p>
+        
+      </div>
+
+	
+
+		<div class="navlist">
+			
+			<p :class=" agentnum==1?'oactvie':'' " @click="agentnum=1">待发货</p>
+			<p  :class=" agentnum==2?'oactvie':'' "  @click="agentnum=2"  >已发货</p>
+
+
+
+		</div>
+		
+
+
+
+
+		<div class="purchase_list" v-if="agentnum==1">
+
+			<div v-for="i in 3">
+				<p>
+					<span style="color: #8d8c8c">订单编号：98765432345</span>
+					<span>等待发货</span>
+
+				</p>
+
+				<div>
+                <img src="../img/bluewhie.png">
+
+                <div>
+                	<p style="margin-bottom: 0.413rem">【鼻综合】上海鼻综合整形名医
+ 上海鼻综合整形名医</p>
+ 					<p>
+ 						<span>￥5200</span>
+ 						<span>数量：1</span>
+ 					</p>
+                </div>
+					
+
+				</div>
+			</div>
+
+			<p class="nomore">
+				<span></span>	
+
+			没有更多了哦
+				<span></span>	
+
+		</p>
+
+
+
+
+
+			
+
+			
+
+
+			
+
+		</div>
+
+		<div class="purchase_list" v-if="agentnum==2">
+
+
+
+
+
+<div v-for="i in 3">
+				<p>
+					<span>订单编号：98765432345</span>
+					<span>已发货</span>
+
+				</p>
+
+				<div>
+                <img src="../img/bluewhie.png">
+
+                <div>
+                	<p>【鼻综合】上海鼻综合整形名医
+ 上海鼻综合整形名医</p>
+ 					<p>
+ 						<span>￥5200</span>
+ 						<span>数量：1</span>
+ 					</p>
+                </div>
+					
+
+				</div>
+			</div>
+
+			<p class="nomore">
+				<span></span>	
+
+			没有更多了哦
+				<span></span>	
+
+		</p>
+			
+
+
+			
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+		
+
+		
+
+
+
+		
+
+		
+
+
+
+
+
+
+
+
+
+		
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		allshow:false,
+      		showstyle:false,
+      		card:'',
+      		city:'',
+      		cardnum:'',
+      		bank:'',
+      		idcard:'',
+      		phone:'',
+      		cash:'',
+      		bgshow:false,
+      		agentnum:1
+
+      		
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        checknum(e){
+        this.shoparr[e].show=!this.shoparr[e].show
+
+        },
+        tosend(){
+        	var that=this
+        	if(this.showstyle){
+        		this.bgshow=true;
+        		setTimeout(function(){
+        		that.bgshow=false;
+
+        		},3000)
+
+        	}
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

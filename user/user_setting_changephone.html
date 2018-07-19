@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #ffffff">
+		<div id="app">
+
+
+		<div class="header_view" >
+        <img src="../img/left.png" onclick="backto()">
+        <p>更换手机</p>
+        <p></p>
+        
+      </div>
+
+
+      <div class="changephone">
+        <div class="changephone_tittle">
+          当前手机号：18017360909
+        </div>
+        
+
+      </div>
+
+      <div class="input_phone">
+        <div>
+          <input type="text" name="" placeholder="短信验证码" style="background: url(../img/iconsms.png) no-repeat;background-size: 0.533rem 0.413rem;background-position:0.2rem 0.467rem;">
+          <p>发送验证码</p>
+        </div>
+        <p @click="goto('user_setting_changenewphone.html')">下一步</p>
+
+
+      </div>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+
+		
+
+		
+
+
+
+
+
+
+
+
+
+		
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		allshow:false,
+      		showstyle:false,
+      		card:'',
+      		city:'',
+      		cardnum:'',
+      		bank:'',
+      		idcard:'',
+      		phone:'',
+      		cash:'',
+      		bgshow:false
+
+      		
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+         goto(e){
+          window.location.href=e
+        },
+        changeinput(){
+
+        	if(this.card==''||this.city==''||this.cardnum==''||this.bank==''||this.idcard==''||this.phone==''||this.cash==''){
+        		this.showstyle=false
+        	}else{
+        		this.showstyle=true
+        	}
+
+        },
+        checknum(e){
+        this.shoparr[e].show=!this.shoparr[e].show
+
+        },
+        tosend(){
+        	var that=this
+        	if(this.showstyle){
+        		this.bgshow=true;
+        		setTimeout(function(){
+        		that.bgshow=false;
+
+        		},3000)
+
+        	}
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

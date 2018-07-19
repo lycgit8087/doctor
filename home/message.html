@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="message_top">
+				咨询
+			</div>
+
+			<div class="doctor_message">
+				
+				<div v-for="i in 5" @click="goto">
+				<img src="../img/doctorface.png" />
+
+				<div>
+					<p>
+						
+					<span>官方客服</span>
+					<span>1天前</span>
+
+
+					</p>
+					<p style="color: #bebebe">变美不在挑花眼，百名咨询师为您提供免费服务.....</p>
+
+				</div>
+					
+				</div>
+
+			</div>
+			
+			
+			<mt-tabbar>
+  <mt-tab-item id="外卖" href="../index.html" >
+    <img slot="icon" src="../img/indexhui.png">
+    主页
+  </mt-tab-item>
+  <mt-tab-item id="订单" href="list.html">
+    <img slot="icon" src="../img/list.png">
+    分类
+  </mt-tab-item>
+  <mt-tab-item id="发现" href="shop.html">
+    <img slot="icon" src="../img/shophui.png" >
+    购物车
+  </mt-tab-item>
+  <mt-tab-item id="消息" href="message.html" class="a_active">
+    <img slot="icon" src="../img/messagecolor.png">
+    消息
+  </mt-tab-item>
+  <mt-tab-item id="我的" href="user.html">
+    <img slot="icon" src="../img/my.png">
+    我的
+  </mt-tab-item>
+</mt-tabbar>
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        checknum(e){
+        this.curnum=e;
+
+        },
+        goto(){
+        	window.location.href="messagein.html"
+        }
+      }
+    })
+  </script>
+
+
+	</body>
+
+</html>

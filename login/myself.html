@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #f5f5f5">
+		<div id="app" class="myself">
+
+
+		<div class="header_view" >
+        <img src="../img/left.png" onclick="backto()">
+        <p>个人信息</p>
+        <p></p>
+        
+      </div>
+
+
+
+      <div class="setting">
+        
+        <p @click="goto('user_setting_changephone.html')">
+          <span>修改头像</span>
+
+          <span>
+            <img src="../img/icondot.png" style="height: 0.867rem;
+            width: 0.867rem">
+          <img src="../img/right.png">
+
+            
+          </span>
+        </p>
+         <p @click="goto('username.html')">
+          <span>会员名</span>
+
+          <span>
+
+            <span style="color: #bebebe" >蓉蓉</span>
+          <img src="../img/right.png">
+            
+
+          </span>
+        </p>
+
+
+      
+
+      </div>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+
+		
+
+		
+
+
+
+
+
+
+
+
+
+		
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		allshow:false,
+      		showstyle:false,
+      		card:'',
+      		city:'',
+      		cardnum:'',
+      		bank:'',
+      		idcard:'',
+      		phone:'',
+      		cash:'',
+      		bgshow:false
+
+      		
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        changeinput(){
+
+        	if(this.card==''||this.city==''||this.cardnum==''||this.bank==''||this.idcard==''||this.phone==''||this.cash==''){
+        		this.showstyle=false
+        	}else{
+        		this.showstyle=true
+        	}
+
+        },
+        checknum(e){
+        this.shoparr[e].show=!this.shoparr[e].show
+
+        },
+        goto(e){
+          window.location.href=e
+        },
+        tosend(){
+        	var that=this
+        	if(this.showstyle){
+        		this.bgshow=true;
+        		setTimeout(function(){
+        		that.bgshow=false;
+
+        		},3000)
+
+        	}
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

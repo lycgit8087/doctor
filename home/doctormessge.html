@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="header_view" >
+        <img src="../img/left.png" onclick="backto()">
+        <p>医生主页</p>
+        <p></p>
+        
+      </div>
+
+
+			<div class="dc_top" style="margin-top: 1.067rem">
+				<div></div>
+				<div>
+					<div class="dc_ms">
+						
+		<img src="../img/bluewhie.png" class="pri_image" />
+					<p>张三</p>
+
+					<p>杭州整形医院</p>
+
+					<p>
+						
+						<span>从业15年</span>
+						<span>年龄:46岁</span>
+						<span>性别:男</span>
+
+					</p>
+					<p>
+						
+						<span>效果:4.9</span>
+						<span>专业:4.9</span>
+						<span>服务:4.9</span>
+						
+					</p>
+
+
+
+					</div>
+
+
+					<div class="dc_bot">
+						
+						<div @click="goto('doctorinfo.html')">
+		<img src="../img/dottext.png"  />
+		<p>医生资料</p>
+
+							
+
+						</div>
+						<div @click="goto('doctorimage.html')">
+		<img src="../img/dotvip.png"  />
+		<p>医生证件</p>
+
+							
+
+						</div>
+						<div @click="goto('doctorglory.html')">
+		<img src="../img/jianli.png"  />
+		<p>医生荣耀</p>
+
+							
+
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+
+			<div class="dc_fuwu">
+			<p class="time_out">他擅长的服务</p>
+
+
+				<div class="message_tittle" v-for="i in 4"><img src="../img/bluewhie.png" class="pri_image"> <div><p>【鼻综合】上海鼻综合整形名医
+ 上海鼻综合整形名医</p> <p><span>郑林林 </span> <span>已预约:23</span></p> <p><span>￥5200</span> <span>￥8600</span></p></div></div>
+				
+
+
+			</div>
+
+
+			<div class="anli">
+			<p class="time_out">案例</p>
+
+
+			<div class="anli_view" v-for="i in  2">
+				<div class="anli_tittle" >
+					标题标题标题标题标题标题标题
+				</div>
+				
+
+			</div>
+				
+
+
+			</div>
+
+
+
+
+			<div class="pingjia">
+			<p class="time_out">评价</p>
+
+
+			<div v-for="i in 2">
+		<img src="../img/bluewhie.png"  />
+
+
+		<div>
+
+			<p>
+				<span>郑林林</span>
+
+				<span>
+		<img src="../img/star.png"  v-for="i in 5" />
+					
+
+
+				</span>
+
+
+			</p>
+
+
+			<p>通过成型的人工乳房假体内以改善胸部的大小。运用
+黄金美学自定个人乳房挺拔度来量身做属于自己的身通过成型的人工乳房假体内以改善胸部的大小。运用
+黄金美学自定个人乳房挺拔度来量身做属于自己的身</p>
+
+			<div class="pingjia_image">
+		<img src="../img/zipai.jpg"  v-for="i in 3" />
+
+
+				
+
+
+			</div>
+
+			<p>2018.1.10</p>
+			
+
+
+		</div>
+				
+
+
+
+			</div>
+				
+
+
+			</div>
+
+
+
+<div class="totop">
+		<img src="../img/totop.png"/>
+
+	
+	<p>顶部</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        goto(e){
+        	window.location.href=e
+        
+
+        }
+        }
+      
+    })
+  </script>
+
+
+	</body>
+
+</html>

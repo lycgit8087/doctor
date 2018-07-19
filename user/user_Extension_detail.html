@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #f5f5f5">
+		<div id="app">
+				<div class="header_view" >
+			        <img src="../img/left.png" onclick="backto()">
+			        <p>我的推广明细</p>
+			        <p></p>
+			        
+			      </div>
+
+	
+
+		<div class="navlist_detail" style="margin-top: 1.067rem">
+			
+			<p :class=" agentnum==1?'oactvie':'' " @click="agentnum=1">待返现(2)</p>
+			<p  :class=" agentnum==2?'oactvie':'' "  @click="agentnum=2"  >已返现(4)</p>
+			<p  :class=" agentnum==3?'oactvie':'' "  @click="agentnum=3"  >订单退款(3)</p>
+
+
+
+
+		</div>
+		
+
+
+
+
+		<div class="agentconsur_list_detail" v-if="agentnum==1">
+
+
+
+
+
+			<div v-for="i in 2">
+
+				<div class="detal_top">
+					<p>订单编号：87654345678</p>
+					<p> 待返现</p>
+
+				</div>
+				<div class="detal_center">
+					<p>
+						
+						注射微整注射微整
+					</p>
+
+					<p>
+						
+
+						<span>万涛*</span>
+						<span>电话:157*****62</span>
+
+					</p>
+
+
+				</div>
+				<div class="detal_bot">
+					<p>
+						
+
+						<span>订单金额：￥6372</span>
+						<span>下单时间：2018-08-08 15：45</span>
+						
+					</p>
+					
+					<p>
+						订单返现金额：￥637
+					</p>
+
+					
+
+				</div>
+
+				
+			</div>
+
+			
+
+
+			
+
+		</div>
+
+		<div class="agentconsur_list_detail" v-if="agentnum==2">
+
+
+
+
+
+			<div v-for="i in 4">
+
+				<div class="detal_top">
+					<p>订单编号：87654345678</p>
+					<p> 已返现</p>
+
+				</div>
+				<div class="detal_center">
+					<p>
+						
+						注射微整注射微整
+					</p>
+
+					<p>
+						
+
+						<span>万涛*</span>
+						<span>电话:157*****62</span>
+
+					</p>
+
+
+				</div>
+				<div class="detal_bot">
+					<p>
+						
+
+						<span>订单金额：￥6372</span>
+						<span>下单时间：2018-08-08 15：45</span>
+						
+					</p>
+					
+					<p>
+						订单返现金额：￥637
+					</p>
+
+					
+
+				</div>
+
+				
+			</div>
+
+			
+
+
+			
+
+		</div>
+
+		<div class="agentconsur_list_detail" v-if="agentnum==3">
+
+
+
+
+
+			<div v-for="i in 3">
+
+				<div class="detal_top">
+					<p>订单编号：87654345678</p>
+					<p>   订单已退款</p>
+
+				</div>
+				<div class="detal_center">
+					<p>
+						
+						注射微整注射微整
+					</p>
+
+					<p>
+						
+
+						<span>万涛*</span>
+						<span>电话:157*****62</span>
+
+					</p>
+
+
+				</div>
+				<div class="detal_bot">
+					<p>
+						
+
+						<span>订单金额：￥6372</span>
+						<span>下单时间：2018-08-08 15：45</span>
+						
+					</p>
+					
+					<p>
+						订单返现金额：￥637
+					</p>
+
+					
+
+				</div>
+
+				
+			</div>
+
+			
+
+
+			
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+		
+
+		
+
+
+
+		
+
+		
+
+
+
+
+
+
+
+
+
+		
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		allshow:false,
+      		showstyle:false,
+      		card:'',
+      		city:'',
+      		cardnum:'',
+      		bank:'',
+      		idcard:'',
+      		phone:'',
+      		cash:'',
+      		bgshow:false,
+      		agentnum:1
+
+      		
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        checknum(e){
+        this.shoparr[e].show=!this.shoparr[e].show
+
+        },
+        tosend(){
+        	var that=this
+        	if(this.showstyle){
+        		this.bgshow=true;
+        		setTimeout(function(){
+        		that.bgshow=false;
+
+        		},3000)
+
+        	}
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #f5f5f5">
+		<div id="app">
+				<div class="header_view" >
+        <img src="../img/left.png" onclick="backto()">
+        <p>支付</p>
+        <p></p>
+        
+      </div>
+
+      <div class="paying">
+        
+        完善会员资料
+      </div>
+
+      <div class="paying_input">
+        
+        <p>
+          <span>真实姓名</span>
+          <input type="text" v-model="username" placeholder="请输入您的姓名" @input="changeinput">
+        </p>
+        <p>
+          <span>手机号</span>
+          <input type="text" v-model="phone" placeholder="请选择您的手机号" @input="changeinput">
+        </p>
+        <p>
+          <span>身份证</span>
+          <input type="text" v-model="idcard" placeholder="请输入身份证号" @input="changeinput"> 
+        </p>
+      </div>
+
+      <div class="pay_type">
+        
+        <div class="time_out" style="width: 3.2rem;margin-bottom: 0.6rem">选择支付方式</div>
+
+        <p v-for="(item,index) in payarr" @click="chekckspan(index)">
+          <span>
+               <img :src="item.url">
+          <span>{{item.text}}</span>
+            
+          </span>
+          <span :class="numpayed==index?'spanactive':'' "></span>
+       
+        </p>
+
+
+      </div>
+
+      <div class="pay_send">
+        
+        <p>实际支付：499元</p>
+        <p :class="showstyle?'payactivep':'' "  @click="showme">立即支付</p>
+      </div>
+
+      	
+      	
+
+
+
+
+      	<div class="bgback" v-if="payedshow">
+      		
+
+      		<div class="payed_bg" style="height: 7.747rem;height: 2.12rem;justify-content: center;flex-direction: row;align-items: center;">
+
+      			您已经是会员不能购买了
+      			
+
+      		</div>
+      	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+
+		
+
+		
+
+
+
+
+
+
+
+
+
+		
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		allshow:false,
+      		showstyle:false,
+      		card:'',
+      		city:'',
+      		cardnum:'',
+          username:'',
+      		bank:'',
+          numpayed:-1,
+      		idcard:'',
+      		phone:'',
+      		cash:'',
+      		bgshow:false,
+      		payedshow:false,
+          payarr:[
+            {
+                url:"../img/weixin.png",
+                text:'微信支付'
+            },
+            {
+                url:"../img/zhifubao.png",
+                text:'支付宝支付'
+            }
+          ]
+
+      		
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        goto(e){
+          window.location.href = e;
+
+        },
+        chekckspan(e){
+          this.numpayed=e
+        },
+
+        changeinput(){
+
+        	if(this.idcard==''||this.username==''||this.phone==''){
+        		this.showstyle=false
+        	}else{
+        		this.showstyle=true
+        	}
+
+        },
+        checknum(e){
+        this.shoparr[e].show=!this.shoparr[e].show
+
+        },
+        closeme(){
+        	this.payedshow=false
+        },
+        showme(){
+            var that=this
+          if(this.showstyle){
+            this.payedshow=true;
+            setTimeout(function(){
+            that.payedshow=false;
+
+            },3000)
+
+          }
+
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

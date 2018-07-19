@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="user_top" >
+        <div @click="goto('../login/login.html')" v-if="showuser">
+          <img src="../img/touxiang.png"  />
+
+        <p>快来登录吧~</p>
+        <p>登录/注册</p>
+        <img src="../img/rightff.png" class="rightffclass">
+
+          
+        </div>
+
+         <div @click="goto('../login/myself.html')"  v-if="!showuser">
+          <img src="../img/touxiang.png"  />
+
+        <p>蓉蓉</p>
+        <p>我的邀请码9527159</p>
+        <img src="../img/rightff.png" class="rightffclass">
+        
+          
+        </div>
+				
+
+				
+				
+
+			</div>
+
+			<div class="user_text">
+				<p>我的订单</p>	
+				<p @click="goto('../user/user_order.html')">查看全部订单
+				<img src="../img/right.png" />
+
+				</p>	
+
+
+			</div>
+
+			<div class="user_list">
+				
+				<div v-for="item in imagrarr">
+				<img :src="item.url" />
+					<p>{{item.text}}</p>
+
+				</div>
+
+			</div>
+
+			<div class="user_tui">
+
+				<div class="huiyuan" @click="goto('../user/user_shop.html')">会员特惠商城</div>
+				<div class="user_text" @click="goto('../user/user_Extension.html')" >
+				<p>我的推广</p>	
+				<p>查看更多
+				<img src="../img/right.png" />
+
+				</p>	
+
+
+			</div>
+
+			</div>
+
+			<div class="user_check_list">
+				
+				<div v-for="item in listarr" @click="goto(item.to)">
+					<div>
+				<img :src="item.url" />
+				<p>{{item.text}}</p>
+						
+					</div>
+				<img src="../img/right.png" />
+
+
+
+				</div>
+
+			</div>
+			
+			<mt-tabbar>
+  <mt-tab-item id="外卖" href="../index.html" >
+    <img slot="icon" src="../img/indexhui.png">
+    主页
+  </mt-tab-item>
+  <mt-tab-item id="订单" href="list.html">
+    <img slot="icon" src="../img/list.png">
+    分类
+  </mt-tab-item>
+  <mt-tab-item id="发现" href="shop.html">
+    <img slot="icon" src="../img/shophui.png" >
+    购物车
+  </mt-tab-item>
+  <mt-tab-item id="消息" href="message.html">
+    <img slot="icon" src="../img/indexmessage.png">
+    消息
+  </mt-tab-item>
+  <mt-tab-item id="我的" href="user.html" class="a_active">
+    <img slot="icon" src="../img/mycolor.png">
+    我的
+  </mt-tab-item>
+</mt-tabbar>
+
+		</div>
+  
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+          showuser:true,
+      		imagrarr:[
+      		{
+      			url:'../img/fukuan.png',
+      			text:"待付款"
+      		},
+      		{
+      			url:'../img/share.png',
+      			text:"待分享"
+      		},
+      		{
+      			url:'../img/weishiyong.png',
+      			text:"未使用"
+      		},
+      		{
+      			url:'../img/pingjia.png',
+      			text:"待评价"
+      		},
+      		{
+      			url:'../img/tuikuan.png',
+      			text:"退款"
+      		},
+
+      		],
+      		listarr:[
+          {
+            url:'../img/star.png',
+            text:"城市代理",
+            to:'../H5/cityshareholder.html'
+          },
+      		{
+      			url:'../img/star.png',
+      			text:"我的收藏",
+            to:'../user/user_myCollection.html'
+      		},
+      		{
+      			url:'../img/fenxiang.png',
+      			text:"分享APP给好友",
+            to:"../H5/appphone.html"
+      		},
+      		{
+      			url:'../img/siye.png',
+      			text:"购买的商品",
+            to:'../user/user_purchase.html'
+      		},
+      		{
+      			url:'../img/hezi.png',
+      			text:"产品核销",
+            to:'../user/user_Writeoff.html'
+      		},
+      		{
+      			url:'../img/youhui.png',
+      			text:"我的优惠券",
+            to:'../user/user_Discount.html'
+      		},
+      		{
+      			url:'../img/jingao.png',
+      			text:"投诉建议",
+            to:'../user/user_order_feedback.html'
+      		},
+      		{
+      			url:'../img/guanyu.png',
+      			text:"关于我们",
+            to:'../user/user_about.html'
+
+      		},
+      		{
+      			url:'../img/shezhi.png',
+      			text:"设置",
+            to:'../user/user_setting.html'
+      		},
+
+      		]
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        checknum(e){
+        this.curnum=e;
+
+        },
+        goto(e){
+          window.location.href=e
+        }
+      }
+    })
+  </script>
+
+
+	</body>
+
+</html>

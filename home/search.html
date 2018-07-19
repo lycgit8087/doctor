@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #f5f5f5">
+		<div id="app">
+
+
+		<div class="sear_header_view" >
+        <img src="../img/left.png" onclick="backto()">
+       	<input type="text" name="" placeholder="搜索你感兴趣的项目" v-model="inputvalue" :class=" changeinputnone?'changeinput':'' " @input="changeme">
+        <p><img src="../img/big.png"></p>
+        
+      </div>
+
+
+
+      <div class="seach_list">
+	      	<p v-for="(item,index) in iconlist" :class="item.pactvie?'pactive':''" @click="listclick(index)">
+	      	<span>{{item.text}}</span>
+			<img :src="item.url">
+      		</p>
+      </div>
+
+      <div class="sear_message" style="margin-top: 2.133rem">
+      	
+      	<div v-for="i in 5">
+
+      		<img src="../img/icondot.png">
+
+      		<div>
+
+      			<p class="ser_one">
+      				<span>郑林林</span>
+      				<span>格莱美整形医院</span>
+      				<span>
+      					
+      					<span>
+      						从业15年
+      					</span>
+      					<span>年龄:46岁</span>
+      					<span>性别:男</span>
+      				</span>
+      				
+      			</p>
+
+      			<div class="star_search">
+      				<p>
+      					<span>
+      						
+      						<img src="../img/listcolor.png" v-for="i in 5">
+      					</span>
+      					<span>
+      						<img src="../img/listcolor.png">
+
+      						<span>收藏</span>
+      					</span>
+
+      				</p>
+
+      				<p>擅长项目</p>
+      				<p class="span_sear">
+      					<span>双眼皮</span>
+      					<span>双眼皮</span>
+      					<span>双眼皮</span>
+
+      				</p>
+
+      			</div>
+
+      			<div class="last_sear_view">
+      				<p>
+      					<span>美国整版ULTH.....</span>
+      					<span>￥5200</span>
+
+      				</p>
+      				<p>
+      					<span>美国整版ULTH.....</span>
+      					<span>￥520</span>
+      					
+      				</p>
+      				<p @click="goto('search_evaluate.html')">查看评论></p>
+
+      			</div>
+      			
+      		</div>
+      		
+      	</div>
+
+      </div>
+
+
+
+      <!-- 背景选择 -->
+
+      <div class="sear_bgback" v-if="ser_oneshow">
+      	<div>
+      		<p v-for="(item,index) in seartwoarr" :class="checknum==index?'spactive':'' "  @click="psarcheck(index)">
+      			{{item.text}}
+      		</p>
+      		
+      	</div>
+      	
+
+      </div>
+
+
+<div class="sear_bgback_two" v-if="ser_twoshow" >
+
+	<div class="city_left">
+		<p v-for='(item,index) in citylist' :class="cityp==index?'citypactive':'' " @click="checkcityp(index)">{{item.text}}</p>
+
+	</div>
+	<div class="city_right">
+		<div>
+			<p>嘉兴市</p>
+		<p>金华市</p>
+		<p>宁波市</p>
+		<p>温州市</p>
+		<p>浙江省</p>
+			
+		</div>
+
+		
+
+	</div>
+
+	
+
+
+</div>
+
+
+<div class="sear_bgback_there" v-if="ser_thereshow">
+	<div>
+
+		<div class="sear_there_top">
+			<p>价格</p>
+			<div>
+				<mt-range v-model="rangeValue" :min="10" :max="10000" :step="10" :bar-height="5">
+  <div slot="start">{{rangeValue}}</div>
+  <div slot="end">无限</div>
+</mt-range>
+				
+			</div>
+			<p>从业年限</p>
+			<div>
+				<span v-for="(item,index) in seryear" :class="oldyear==index?'oldactive':'' " @click="searyear(index)">{{item.text}}</span>
+
+				
+			</div>
+			<p>医生性别</p>
+			<div>
+				<span v-for="(item,index) in searsext" :class="sex==index?'oldactive':'' "  @click="searsex(index)">{{item.text}}</span>
+
+				
+			</div>
+			<p>医生年龄</p>
+			<div>
+				<span v-for="(item,index) in seryearold" :class="year==index?'oldactive':'' "  @click="searyearold(index)">{{item.text}}</span>
+
+				
+				
+			</div>
+
+
+
+		</div>
+		<div class="sear_there_bot">
+			
+			<p @click="resetcheck">重置</p>
+			<p @click="surecheck">确定</p>
+		</div>
+
+		
+
+
+	</div>
+	
+
+
+</div>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		changeinputnone:false,
+      		inputvalue:'',
+      		iconlist:[
+      				{
+      					url:"../img/icon_bot.png",
+      					text:"杭州",
+      					pactvie:false
+      				},
+      				{
+      					url:"../img/icon_bot.png",
+      					text:"智能排序",
+      					pactvie:false
+
+      				},
+      				{
+      					url:"../img/icon_bot.png",
+      					text:"筛选",
+      					pactvie:false
+
+      				},
+      		],
+      		citylist:[
+      			{
+      				text:'北京'
+      			},
+      			{
+      				text:'上海'
+      			},
+      			{
+      				text:'河北'
+      			},
+      			{
+      				text:'广东'
+      			},
+
+      			{
+      				text:'哈尔滨'
+      			},
+      			{
+      				text:'天津'
+      			},{
+      				text:'广西'
+      			},
+      			{
+      				text:'云南'
+      			},
+      			{
+      				text:'湖南'
+      			},
+      			{
+      				text:'湖北'
+      			},
+      			{
+      				text:'武汉'
+      			},
+      		],
+      		checknum:0,
+      		oldyear:-1,
+      		year:-1,
+      		sex:-1,
+      		rangeValue:0,
+      		ser_oneshow:false,
+      		ser_twoshow:false,
+      		ser_thereshow:false,
+      		seryear:[
+      			{
+      				text:'10年以上'
+      			},
+      			{
+      				text:'5-10年'
+      			},
+      			{
+      				text:'3-5年'
+      			}
+      		],
+      		seryearold:[
+      			{
+      				text:'26-30'
+      			},
+      			{
+      				text:'31-35'
+      			},
+      			{
+      				text:'36-40'
+      			},
+      			{
+      				text:'41-45'
+      			},
+      			{
+      				text:'46-50'
+      			},
+      			{
+      				text:'50岁以上'
+      			}
+      		],
+      		searsext:[
+      			{
+      				text:"男"
+      			
+      			},
+      			{
+      				text:"女"
+      			
+      			},
+				],
+      		seartwoarr:[
+      			{
+      				text:'案例数',
+      				check:false
+      			},
+      			{
+      				text:'满意度',
+      				check:false
+      			},
+      			{
+      				text:'案例数',
+      				check:false
+      			},
+      			{
+      				text:'资料量',
+      				check:false
+      			},
+      			{
+      				text:'案例数',
+      				check:false
+      			},
+      		],
+      		cityp:-1
+      	}
+      },
+      methods: {
+        
+       goto(e){
+          window.location.href=e
+        },
+        listclick(e){
+        	if(e==1){
+        		this.ser_oneshow=true
+        		this.ser_twoshow=false
+        		this.ser_thereshow=false
+
+        	}else if(e==0){
+        		this.ser_oneshow=false
+
+        		this.ser_twoshow=true
+        		this.ser_thereshow=false
+
+        	}else{
+        		this.ser_oneshow=false
+
+        		this.ser_twoshow=false
+        		this.ser_thereshow=true
+
+        	}
+
+        	for(let i =0;i<3;i++){
+        		if(i==e){
+        		if(this.iconlist[e].pactvie){
+        		this.iconlist[e].url="../img/icon_bot.png"
+        		this.iconlist[e].pactvie=false
+        		this.ser_thereshow=false
+        		this.ser_oneshow=false
+        		this.ser_twoshow=false
+
+
+        		}else{
+        			this.iconlist[e].url="../img/icontop.png"
+        			this.iconlist[e].pactvie=true
+
+        		}
+
+        		}else{
+        			this.iconlist[i].url="../img/icon_bot.png"
+        			this.iconlist[i].pactvie=false
+
+
+        		}
+        	}
+
+
+
+        		
+
+        	
+        },
+        surecheck(){
+        		this.ser_thereshow=false
+
+        },
+
+        resetcheck(){
+		this.oldyear=-1
+        		this.sex=-1
+        		this.year=-1
+
+
+        },
+        searyear(e){
+        		this.oldyear=e
+        },
+        searsex(e){
+        		this.sex=e
+        },
+        searyearold(e){
+        		this.year=e
+        },
+        checkcityp(e){
+        	this.cityp=e
+        },
+        psarcheck(e){
+        		// this.seartwoarr[e].check=true
+        		this.checknum=e
+        		this.ser_oneshow=false
+        },
+        changeme(){
+        	if(this.inputvalue){
+        	this.changeinputnone=true
+
+        }else{
+        	this.changeinputnone=false
+
+        }
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

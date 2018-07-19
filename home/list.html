@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+	</head>
+
+	<body>
+		<div id="app">
+
+			<div class="header_view" >
+       <p></p>
+        <p>分类</p>
+        <p></p>
+        <!-- <p style="font-size: 0.32rem" :class="shophasshow?'':'shopdele' ">删除</p> -->
+        
+      </div>
+			<div class="page" style="background: #FFFFFF;">
+
+				
+				<div class="content">
+					<div class="sear_header_view"  style="justify-content: center;height: 1rem;border: none;align-items: center;top:1.1rem;">
+       	<input type="text" name="" placeholder="搜索你感兴趣的项目" v-model="inputvalue" :class=" changeinputnone?'changeinput':'' " @focus="goto('../home/search_index.html')"  style="width:9.52rem">
+        <p></p>
+        
+      </div>
+					
+					<div class="list_center" style="margin-top: 2.2rem">
+						
+						<div class="list_left">
+							<p :class=" curnum==1?'list_avtive':'' "  @click="checknum(1)">眼部整形</p>
+							<p  :class=" curnum==2?'list_avtive':'' "  @click="checknum(2)">美体塑形</p>
+							<p  :class=" curnum==3?'list_avtive':'' "  @click="checknum(3)">嘴唇整形</p>
+							<p  :class=" curnum==4?'list_avtive':'' "  @click="checknum(4)">美容护肤</p>
+							<p   :class=" curnum==5?'list_avtive':'' " @click="checknum(5)">抗衰紧致</p>
+							
+							
+						</div>
+						<div class="list_right">
+								<div v-if="curnum==1">
+									<div class="list_image" v-for="i in 4" @click="todoctor">
+								
+								<img src="../img/face.png"/>
+								<p>眼部整形</p>
+								
+							</div>
+
+
+
+								</div>
+								<div v-if="curnum==2">
+									<div class="list_image" v-for="i in 3">
+								
+								<img src="../img/face.png"/>
+								<p>鼻子整形</p>
+								
+							</div>
+
+
+
+								</div>
+								<div  v-if="curnum==3">
+									<div class="list_image" v-for="i in 4">
+								
+								<img src="../img/face.png"/>
+								<p>下巴整形</p>
+								
+							</div>
+
+
+
+								</div>
+
+								<div v-if="curnum==4">4</div>
+								<div v-if="curnum==5">5</div>
+
+							
+							
+							
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				
+
+			</div>
+			<mt-tabbar>
+  <mt-tab-item id="外卖" href="../index.html" >
+    <img slot="icon" src="../img/indexhui.png">
+    主页
+  </mt-tab-item>
+  <mt-tab-item id="订单" href="list.html" class="a_active">
+    <img slot="icon" src="../img/listcolor.png">
+    分类
+  </mt-tab-item>
+  <mt-tab-item id="发现" href="shop.html">
+    <img slot="icon" src="../img/shophui.png" >
+    购物车
+  </mt-tab-item>
+  <mt-tab-item id="消息" href="message.html">
+    <img slot="icon" src="../img/indexmessage.png">
+    消息
+  </mt-tab-item>
+  <mt-tab-item id="我的" href="user.html">
+    <img slot="icon" src="../img/my.png">
+    我的
+  </mt-tab-item>
+</mt-tabbar>
+			
+
+		</div>
+		
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		changeinputnone:false,
+      		id:1,
+      		curnum:1,
+      		inputvalue:'',
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        changeme(){
+        	if(this.inputvalue){
+        	this.changeinputnone=true
+
+        }else{
+        	this.changeinputnone=false
+
+        }
+        },
+        goto(e){
+          window.location.href = e;
+
+        },
+        checknum(e){
+        this.curnum=e;
+
+        },
+        todoctor(){
+        	window.location.href="doctormessge.html"
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #f5f5f5">
+		<div id="app">
+				<div class="header_view" >
+        <img src="../img/left.png" onclick="backto()">
+        <p>提现</p>
+        <p style="font-size: 0.32rem" @click="goto('user_cashhis.html')">提现记录</p>
+        
+      </div>
+
+
+<div class="tittle_cash">
+	提示：当前账户余额金为   500.00
+
+</div>
+
+<div class="cash_list">
+	<div>
+		<p>持卡人</p>
+		<input type="text" name="" placeholder="请输入你的名字" @input="changeinput" v-model='card'>
+
+	</div>
+	<div>
+		<p>卡号</p>
+		<input type="text" name="" placeholder="请输入本人卡号" @input="changeinput" v-model='cardnum'>
+
+	</div>
+	<div>
+		<p>省市</p>
+		<input type="text" name="" placeholder="请输入城市省市" @input="changeinput" v-model='city'>
+
+	</div>
+	<div>
+		<p>分支行</p>
+		<input type="text" name="" placeholder="请输入分支行" @input="changeinput" v-model='bank'>
+
+	</div>
+	<div>
+		<p>身份证</p>
+		<input type="text" name="" placeholder="请输入身份证" @input="changeinput" v-model='idcard'>
+
+	</div>
+	<div>
+		<p>手机号</p>
+		<input type="text" name="" placeholder="请输入手机号" @input="changeinput" v-model='phone'>
+
+	</div>
+	<div>
+		<p>金额</p>
+		<input type="text" name="" placeholder="请输入金额" @input="changeinput" v-model='cash'>
+
+	</div>
+	
+
+
+
+	<p>提现说明：</p>
+	<p>1.每周一处理上周的提现申请，一般3个工作日到账。</p>
+	<p>2.需扣除2%的提现费用及所得税部分</p>
+
+	
+
+
+</div>
+
+
+
+<div class="tosend" :class="showstyle?'toactive':'' " @click="tosend">
+	
+
+	确认
+</div>
+
+
+
+<div class="bgback" v-if="bgshow">
+	
+	<div class="center_bg">
+		您的提现已申请提交
+
+	</div>
+
+</div>
+		
+
+		
+
+
+
+		
+
+		
+
+
+
+
+
+
+
+
+
+		
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		allshow:false,
+      		showstyle:false,
+      		card:'',
+      		city:'',
+      		cardnum:'',
+      		bank:'',
+      		idcard:'',
+      		phone:'',
+      		cash:'',
+      		bgshow:false
+
+      		
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        goto(e){
+          window.location.href = e;
+
+        },
+        changeinput(){
+
+        	if(this.card==''||this.city==''||this.cardnum==''||this.bank==''||this.idcard==''||this.phone==''||this.cash==''){
+        		this.showstyle=false
+        	}else{
+        		this.showstyle=true
+        	}
+
+        },
+        checknum(e){
+        this.shoparr[e].show=!this.shoparr[e].show
+
+        },
+        tosend(){
+        	var that=this
+        	if(this.showstyle){
+        		this.bgshow=true;
+        		setTimeout(function(){
+        		that.bgshow=false;
+
+        		},3000)
+
+        	}
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

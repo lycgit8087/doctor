@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #f5f5f5">
+		<div id="app">
+
+
+		<div class="header_view" >
+        <img src="../img/left.png" @click="backto">
+        <p>确认订单</p>
+        <p></p>
+        
+      </div>
+
+
+      <div class="shopcar">
+          
+
+          <div class="shopcar_top">
+                  <img src="../img/bluewhie.png">
+         <div>
+           <p>【鼻综合】上海鼻综合整形名医上海鼻综
+ 上海鼻综合整形名医</p>
+
+        <p>
+          <span>￥5200</span>
+          <span>
+            <span @click="shoonumcut">-</span>
+            <span>{{shopnum}}</span>
+            <span @click="shoonumadd">+</span>
+
+          </span>
+
+        </p>
+         </div>
+            
+          </div>
+
+
+          <div class="shop_list_detial" v-for="(item,index) in shoplist">
+            
+            <p>
+              <span >{{item.text}}</span>
+              <span :style="index==0? 'color:#f90a46':'' ">
+                {{item.num}}
+              </span>
+            </p>
+            <img src="../img/right.png" v-if="index==2">
+          </div>
+
+      </div>
+
+
+      <div class="shoppayto">
+        <p>总计：￥5538</p>
+        <p @click="showpay">立即支付</p>
+      </div>
+
+        <div class="bgback" v-if="bgshow">
+          
+          <div class="shopcar_alert">
+            <p>商品正在抢购中，真的要离开吗？</p>
+            <div>
+              <p @click="toback">去意已决</p>
+              <p @click="hideme">继续提交</p>
+            </div>
+            
+          </div>
+        </div>
+
+
+        <div class="bgback" v-if="bgshowtwo">
+          
+          <div class="shopcar_pay" >
+            <p class="tetxt_shopone"><span @click="goto('user_shoppay_type.html')">确定</span>
+              <img src="../img/close.png" @click="hidemy">
+            </p>
+            <div>
+              <p>选择支付方式</p>
+              <p @click="checkspan(index)" v-for=' (item,index) in  payarr'>
+                <span :class="syleshow==index?'spanactive':'' "></span>
+                <span>{{item.text}}</span>
+              </p>
+             
+            </div>
+
+          </div>
+
+        </div>
+      
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+
+		
+
+		
+
+
+
+
+
+
+
+
+
+		
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		allshow:false,
+      		showstyle:false,
+      		card:'',
+      		city:'',
+      		cardnum:'',
+      		bank:'',
+      		idcard:'',
+      		phone:'',
+      		cash:'',
+      		bgshow:false,
+          shopnum:0,
+          syleshow:-1,
+          bgshowtwo:false,
+          shoplist:[
+            {
+              text:'预约金合计：',
+              num:"￥23456"
+            },
+             {
+              text:'尾款合计：',
+              num:"￥23456"
+            },
+             {
+              text:'使用优惠券',
+              num:""
+            },
+             {
+              text:'联系人：',
+              num:"万三"
+            },
+             {
+              text:'联系电话：',
+              num:"15757116378"
+            }
+          ],
+          payarr:[
+          {
+            text:'微信支付'
+          },
+          {
+            text:'支付宝支付'
+          }]
+
+      		
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        shoonumcut(){
+          if(this.shopnum==0){
+            this.shopnum=0
+          }else{
+          this.shopnum--
+
+          }
+        },
+        shoonumadd(){
+          this.shopnum++
+        },
+        showpay(){
+          this.bgshowtwo=true
+        },
+        checkspan(e){
+          this.syleshow=e
+        },
+        changeinput(){
+
+        	if(this.card==''||this.city==''||this.cardnum==''||this.bank==''||this.idcard==''||this.phone==''||this.cash==''){
+        		this.showstyle=false
+        	}else{
+        		this.showstyle=true
+        	}
+
+        },
+        checknum(e){
+        this.shoparr[e].show=!this.shoparr[e].show
+
+        },
+        goto(e){
+          window.location.href=e
+        },
+        backto(){
+          this.bgshow=true
+        },
+        hideme(){
+          this.bgshow=false
+        },
+        hidemy(){
+          this.bgshowtwo=false
+        },
+        toback(){
+          this.bgshow=false
+
+            window.history.back();
+        },
+        tosend(){
+        	var that=this
+        	if(this.showstyle){
+        		this.bgshow=true;
+        		setTimeout(function(){
+        		that.bgshow=false;
+
+        		},3000)
+
+        	}
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

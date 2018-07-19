@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #f5f5f5">
+		<div id="app">
+				<div class="header_view" >
+			        <img src="../img/left.png" onclick="backto()">
+			        <p>优惠券</p>
+			        <p></p>
+			        
+			      </div>
+
+
+
+		<div class="dis" style="margin-top: 1.067rem">
+			
+
+			<div v-for='i in 5'>
+				<div>
+
+					<div class="dis_top">
+						<p>适用超声刀</p>
+						<p>200元</p>
+					</div>
+					<div class="dis_bot">
+						<p>2018-08-08 将到期</p>
+						<p v-if="i>2">已使用</p>
+						<p @click="goto('user_member.html')">查看可适用商品></p>
+
+					</div>
+					
+
+				</div>
+				
+
+			</div>
+		</div>
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		allshow:false,
+      		
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        checknum(e){
+        this.shoparr[e].show=!this.shoparr[e].show
+
+        },
+        goto(e){
+          window.location.href=e
+        },
+        checkallshop(){
+        	
+
+        	if(this.allshow){
+        		for(let i=0;i<3;i++){
+        		this.shoparr[i].show=false
+        	}
+        	this.allshow=false
+
+        	}else{
+        		for(let i=0;i<3;i++){
+        		this.shoparr[i].show=true
+        	}
+        	this.allshow=true
+        	}
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

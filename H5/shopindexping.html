@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #f5f5f5">
+		<div id="app">
+
+
+		
+
+      <div class="shopdetail" style="margin-top: 0">
+
+        <p class="swiper_list">
+          {{nownum}}/{{allnum}}
+        </p>
+        <div class="top_icon">
+          <img src="../img/left.png" onclick="backto()">
+          <p>
+            <img src="../img/shoptwo.png">
+            
+            <img src="../img/shopthere.png">
+            <img src="../img/shopone.png">
+
+
+          </p>
+
+        </div>
+
+        <mt-swipe :auto="0" style="height: 6.253rem" :show-indicators="false"  @change="handleChange">
+  <mt-swipe-item v-for="(item,index) in imgarr" :key="index"><img :src="item.url"></mt-swipe-item>
+</mt-swipe>
+      	<!-- <img src="../img/doctorman.jpg"> -->
+
+      	<div class="shopdetail_top" style="height: auto;">
+      		<p>鼻综合】上海鼻综合整形名医上海鼻综合整形名医上海鼻综合整形名医</p>
+      		<p style="margin-top: 0.4rem">
+      			<span style="font-size: 0.4rem;color: #f90a46;margin-top: ">￥5200</span>
+      			<span style="color: #989898;font-size: 0.24rem;text-decoration: line-through;">￥8600</span>
+      		</p>
+      		<p style="display: flex;width: 100%;justify-content: space-between;font-size: 0.32rem;height: 0.8rem;align-items: center;">
+      			<span style="color: #bebebe;">杭州市</span>
+      			<span style="color: #090909;">已预约:23</span>
+      		</p>
+      	</div>
+      	<div class="shopindex_evaluateto">
+      		<p>评价(80)</p>
+      		<p  @click="goto('../user/allevaluate.html')">查看全部评价</p>
+
+
+      	</div>
+
+      	<div class="shop_index_image">
+      	<div class="shop_image_top">
+      		<p>
+      			<img src="../img/icondot.png">
+      			<span>正佳林</span>
+      		</p>
+      		<p>2018/3/8</p>
+
+      	</div>
+      		<div class="shop_image_center">
+      			<img src="../img/zipai.jpg" v-for="i in 4">
+      		</div>
+
+      		<div class="shop_image_bot">
+      			价格优惠，服务质量好，
+      		</div>
+
+
+
+
+
+
+
+
+      	</div>
+
+
+      	<div class="dot_shop">
+      			<img src="../img/doctorman.jpg">
+      			<p>
+      				<span>张林林</span>
+      				<span>234案例</span>
+
+      			</p>
+      			<p>
+      				<span>上海鼻综合整形名医</span>
+      				<span>2年执业经验</span>
+
+      			</p>
+
+      	</div>
+      	<div class="dot_icon">
+      		<p>
+      			<span></span>
+      			<span>医院认证</span>
+
+      		</p>
+      		<p>
+      			<span></span>
+      			<span>执业认证</span>
+      			
+      		</p>
+      	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      	<div class="shop_tiile">
+      		
+      		商品详情
+      	</div>
+
+      	<div class="shop_taocan">
+      		<img src="../img/taocan.jpg">
+      		<img src="../img/shop_text.jpg">
+
+      	</div>
+
+      	<div class="member">
+          <div v-for="i in 2">
+
+                <img src="../img/bluewhie.png">
+                <div>
+                  <p>
+                    【鼻综合】上海鼻综合整形名医
+ 上海鼻综合整形名医
+                  </p>
+                  <p>
+                    <span>郑林林 </span>
+                    <span>已预约:23</span>
+
+                  </p>
+
+                  <p>
+                    <span>
+                      
+                      <span>￥5200</span>
+                      <span>￥8600</span>
+
+                    </span>
+
+                  </p>
+                </div>
+            
+          </div>
+      		
+
+      	</div>
+        <div class="seemessage" @click="goto('../user/allevaluate.html')">查看评论></div>
+
+        
+      </div>
+
+
+      <div class="bug_shop_index" >
+      	<div class="bug_one">
+      		<div>
+      			<p>
+      				<span>预约金:</span>
+      				<span style="color: #f9134b">￥298</span>
+      			</p>
+      			<p>
+      				<span>到院再付:</span>
+      				<span style="color: #090909">￥298</span>
+      			</p>
+      		</div>
+      		
+      		<p><img src="../img/kefu.png"></p>
+      	</div>
+      	<div class="bug_two" @click="goto('../user/user_payed_shar.html')" style="flex-direction: column;">
+          <p style="font-size:.4rem;margin-bottom:.1rem">￥299</p>
+          <p style="font-size:.3rem;">单独购买</p>
+
+
+        </div>
+      	<div class="bug_there" @click="goto('h5_shar.html')"  style="flex-direction: column;">
+            <p style="font-size:.4rem;margin-bottom:.1rem">￥199</p>
+            <p style="font-size:.3rem;">发起2人拼团</p>
+        </div>
+
+      	
+      </div>
+      <div class="bgback" v-if="bgshow">
+      	
+
+      	<div class="bg_shop">
+      		<img src="../img/close.png" @click="closebg">
+
+
+      		<div class="shop_bg_top">
+                <img src="../img/bluewhie.png">
+      			<div>
+      				<p>【鼻综合】上海鼻综合整形名医
+ 上海鼻综合整形名医</p>
+ <p>已选：水光针-12针</p>
+ <p>库存：87</p>
+      			</div>
+      			
+
+      		</div>
+
+      		<div class="shop_check">
+      			<p>眼睛</p>
+      			<p>外科</p>
+      			<p>整容</p>
+
+      			
+
+      		</div>
+
+      		<div class="shop_num">
+      			<p>数量</p>
+
+      			<p>
+      				<span>-</span>	
+      				<span>3</span>	
+      				<span>+</span>	
+
+      			</p>
+      			
+
+      		</div>
+
+
+      		<div class="bug_shop">
+      	
+      	￥1980 立即购买
+      </div>
+      		
+
+      	</div>
+      </div>
+
+      <div class="addshop" v-if="showcar">添加成功，在购物车等着亲哦</div>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+
+		
+
+		
+
+
+
+
+
+
+
+
+
+		
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		bgshow:false,
+      		showcar:false,
+          nownum:1,
+          allnum:3,
+          imgarr:[
+            {
+              url:'../img/doctorman.jpg'
+            },
+            {
+              url:'../img/doctorman.jpg'
+            },
+            {
+              url:'../img/doctorman.jpg'
+            }
+          ]
+      	}
+      },
+      created(){
+        this.allnum=this.imgarr.length
+      },
+      methods: {
+        closebg(){
+        	this.bgshow=false
+        },
+        openbg(){
+        	this.bgshow=true
+        },
+        handleChange(e){
+            console.log(e)
+            this.nownum=e+1
+        },
+        showme(){
+        	var that=this
+        	this.showcar=true
+        	setTimeout(function(){
+        	that.showcar=false
+
+        	},2000)
+        },
+       goto(e){
+          window.location.href=e
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

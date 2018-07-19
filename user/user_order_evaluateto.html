@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #f5f5f5;">
+		<div id="app" class="evaluateto">
+
+		<div class="header_view" >
+        <img src="../img/left.png" onclick="backto()">
+        <p>评价</p>
+        <p class="right_header_text" @click="goto('user_order_feedback.html')">意见反馈</p>
+        
+      </div>
+
+      <!-- 评分 -->
+
+      <div class="tostar_evaluate">
+        <p>请为本次服务打分</p>
+        <p>
+          <span>效果</span>
+          <span>
+            <span v-for='(item,index) in stararrone' :class=" item.bgclass?'spanactvie':'' " @click='starone(index)'></span>
+
+
+          </span>
+        </p>
+
+         <p>
+          <span>专业</span>
+          <span>
+            <span v-for='(item,index) in stararrtwo' :class=" item.bgclass?'spanactvie':'' " @click='startwo(index)'></span>
+
+
+          </span>
+        </p>
+
+         <p>
+          <span>服务</span>
+          <span>
+            <span v-for='(item,index) in stararrthere' :class=" item.bgclass?'spanactvie':'' " @click='starthere(index)'></span>
+
+
+          </span>
+        </p>
+        
+      </div>
+
+      <div class="tostar_evaluate_text">
+
+        <p class="time_out" style="width: 2.647rem">请添加图片</p>
+
+        <div class="file_image">
+              <div v-for="(item,index) in filearr">
+          <img :src=" item.imgshow?item.img:'../img/addimage.png' ">
+          <input type="file" :id="index" @change='onUpload'>
+          <img src="../img/close_image.png" v-if="item.imgshow" class="close_image" >
+          <span></span>
+
+                
+              </div>
+              
+              
+             
+
+        </div>
+
+        <div class="textarea_view">
+        <textarea placeholder="请写出您对本次服务的感受"></textarea>
+
+          
+
+        </div>
+        
+      </div>
+
+
+      <div class="evaluateto_send">
+        
+        提交
+      </div>
+
+
+
+
+    
+
+     
+
+      
+
+		
+
+		
+
+
+
+		
+		
+
+
+
+		
+
+
+		
+
+	
+
+
+
+
+
+
+		
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		allshow:false,
+      		bgshow:false,
+          filearr:[
+              {
+                img:'',
+                imgshow:false,
+              },
+              {
+                img:'',
+                imgshow:false,
+              },
+              {
+                img:'',
+                imgshow:false,
+              },
+              {
+                img:'',
+                imgshow:false,
+              }
+          ],
+          stararrone:[
+            {
+              bgclass:false
+            },
+              {
+              bgclass:false
+            },
+              {
+              bgclass:false
+            },
+              {
+              bgclass:false
+            },
+              {
+              bgclass:false
+            }
+          ],
+          stararrtwo:[
+            {
+              bgclass:false
+            },
+              {
+              bgclass:false
+            },
+              {
+              bgclass:false
+            },
+              {
+              bgclass:false
+            },
+              {
+              bgclass:false
+            }
+          ],
+          stararrthere:[
+            {
+              bgclass:false
+            },
+              {
+              bgclass:false
+            },
+              {
+              bgclass:false
+            },
+              {
+              bgclass:false
+            },
+              {
+              bgclass:false
+            }
+          ]
+      		
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        checknum(e){
+        this.shoparr[e].show=!this.shoparr[e].show
+
+        },
+        call(){
+        		this.bgshow=true
+        },
+        closeviewbg(){
+        		this.bgshow=false
+
+        },
+        goto(e){
+        	window.location.href=e
+        
+
+        },
+        onUpload(e){
+          var that=this
+          var num =parseInt(e.target.id)
+          // var img = window.webkitURL.createObjectURL(fileList[0]); 
+          var reader = new FileReader();
+          reader.onload=function(evt){
+            console.log(evt.target.result)
+            that.filearr[num].img=evt.target.result
+            that.filearr[num].imgshow=true
+          }
+
+
+    reader.readAsDataURL(e.target.files[0])
+          
+        },
+        starone(e){
+            for(let i=0;i<5;i++){
+              if(i==e){
+                for(let j=0;j<=e;j++){
+                  this.stararrone[j].bgclass=true
+                }
+              }else{
+                this.stararrone[i].bgclass=false
+              }
+            }
+        },
+        startwo(e){
+            for(let i=0;i<5;i++){
+              if(i==e){
+                for(let j=0;j<=e;j++){
+                  this.stararrtwo[j].bgclass=true
+                }
+              }else{
+                this.stararrtwo[i].bgclass=false
+              }
+            }
+        },
+        starthere(e){
+            for(let i=0;i<5;i++){
+              if(i==e){
+                for(let j=0;j<=e;j++){
+                  this.stararrthere[j].bgclass=true
+                }
+              }else{
+                this.stararrthere[i].bgclass=false
+              }
+            }
+        },
+         callphone(){
+          window.location.href = "tel:10086";
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

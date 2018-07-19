@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #f5f5f5">
+		<div id="app">
+      <img src="../img/kefu.png" class="kefuimage">
+
+
+      <div class="shopdetail" style="margin-top: 0">
+      	<p class="swiper_list">
+          {{nownum}}/{{allnum}}
+        </p>
+        <div class="top_icon">
+          <img src="../img/left.png" onclick="backto()">
+          <p>
+            <img src="../img/shopone.png">
+
+
+          </p>
+
+        </div>
+
+
+        <mt-swipe :auto="0" style="height: 6.253rem" :show-indicators="false"  @change="handleChange">
+  <mt-swipe-item v-for="(item,index) in imgarr" :key="index"><img :src="item.url"></mt-swipe-item>
+</mt-swipe>
+
+      	<div class="shopdetail_top">
+      		<p>鼻综合】上海鼻综合整形名医上海鼻综合整形名医上海鼻综合整形名医</p>
+      		<p>
+      			<span>￥5200</span>
+      			<span>￥8600</span>
+      		</p>
+      	</div>
+      	<div class="shop_tiile">
+      		
+      		商品详情
+      	</div>
+
+      	<div class="shop_taocan">
+      		<img src="../img/taocan.jpg">
+      		<img src="../img/shop_text.jpg">
+
+      	</div>
+
+        
+      </div>
+
+
+      <div class="bug_shop" @click="openbg">
+      	
+      	立即购买
+      </div>
+      <div class="bgback" v-if="bgshow">
+      	
+
+      	<div class="bg_shop">
+      		<img src="../img/close.png" @click="closebg">
+
+
+      		<div class="shop_bg_top">
+                <img src="../img/bluewhie.png">
+      			<div>
+      				<p>【鼻综合】上海鼻综合整形名医
+ 上海鼻综合整形名医</p>
+ <p>已选：水光针-12针</p>
+ <p>库存：87</p>
+      			</div>
+      			
+
+      		</div>
+
+      		<div class="shop_check">
+      			<p>眼睛</p>
+      			<p>外科</p>
+      			<p>整容</p>
+
+      			
+
+      		</div>
+
+      		<div class="shop_num">
+      			<p>数量</p>
+
+      			<p>
+      				<span>-</span>	
+      				<span>3</span>	
+      				<span>+</span>	
+
+      			</p>
+      			
+
+      		</div>
+
+
+      		<div class="bug_shop">
+      	
+      	￥1980 立即购买
+      </div>
+      		
+
+      	</div>
+      </div>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+
+
+
+		
+
+		
+
+
+
+
+
+
+
+
+
+		
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		bgshow:false,
+          nownum:1,
+          allnum:3,
+          imgarr:[
+            {
+              url:'../img/doctorman.jpg'
+            },
+            {
+              url:'../img/doctorman.jpg'
+            },
+            {
+              url:'../img/doctorman.jpg'
+            }
+          ]
+      	}
+      },
+       created(){
+        this.allnum=this.imgarr.length
+      },
+      methods: {
+        closebg(){
+        	this.bgshow=false
+        },
+        handleChange(e){
+            console.log(e)
+            this.nownum=e+1
+        },
+        openbg(){
+        	this.bgshow=true
+        },
+       goto(e){
+          window.location.href=e
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

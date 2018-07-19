@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #f5f5f5">
+		<div id="app" class="good">
+
+		<div class="header_view" >
+        <img src="../img/left.png" onclick="backto()">
+        <p>待评价订单详情</p>
+        <p class="goods">意见反馈</p>
+        
+      </div>
+
+      <!-- 提示 -->
+
+      <div class="bgback" v-if="bgshow"  v-cloak>
+
+  <div class="call" >
+    <div>
+      <p>18017360909</p>
+    <p>确认要拨打电话嘛？</p>
+      
+    </div>
+    
+
+    <div>
+      
+      <p @click="closeviewbg">取消</p>
+      <p @click='callphone'>确定</p>
+
+    </div>
+
+   </div>
+
+</div>
+
+
+      <div class="detail_order_top_good">
+
+        <div>
+          
+   <img src="../img/bluewhie.png">
+
+        </div>
+
+        <div>
+          <div class="detail_order_top_good_top">
+          
+
+    <div>
+        
+          <p>郑林林  </p>
+
+    </div>
+          <p>
+            <img src="../img/star.png" v-for="i in 5">
+
+          </p>
+        </div>
+
+        <div class="detail_order_top_good_image">
+          
+          <img src="../img/zipai.jpg" v-for="i in 6">
+
+        </div>
+        <div class="detail_order_top_good_text" >
+         <p>2018.1.10</p>
+         <p>价格实惠，质量超棒！！给医生5星好评！！！</p>
+
+        </div>
+          
+
+        </div>
+        
+      		
+
+      	
+
+      	
+      </div>
+
+      <div class="detail_paynow  ">
+      	去分享集赞吧
+      </div>
+
+      <div class="order_detail_num">
+
+      	<p>
+      		<span>订单编号：</span>
+      		<span>345678976548766</span>
+
+      	</p>
+        <p>
+          <span>订单支付时间:</span>
+          <span>2018-09-09 10:09:09</span>
+
+        </p>
+
+      	<p>
+      		<span>下单时间：</span>
+      		<span>2018-09-09 10:09:09</span>
+
+      	</p>
+        <p>
+          <span>核销时间：</span>
+          <span>2018-09-09 10:09:09</span>
+
+        </p>
+      	<p>
+          <span>评价时间：</span>
+          <span>2018-09-09 10:09:09</span>
+
+        </p>
+
+      </div>
+
+				<div class="detail_order_message">
+				<p class="time_out">订单详情</p>
+
+				<div>
+					<p>
+					<span>预约金合计：</span>
+					<span>￥23456</span>
+				</p>
+				<p>
+					<span>尾款合计：</span>
+					<span>￥23456</span>
+				</p>
+				<p>
+					<span>联系人：</span>
+					<span>￥23456</span>
+				</p>
+				<p>
+					<span>联系电话：</span>
+					<span>￥23456</span>
+				</p>
+				<p>
+					<span>客服电话：</span>
+					<span @click="call">400-098-0988</span>
+				</p>
+				<p>
+					<span>工作时间：</span>
+					<span>每天9:00-22:00</span>
+				</p>
+					
+				</div>
+					
+
+					
+				</div>
+		
+
+		
+
+
+
+		
+		
+
+
+
+		
+
+
+		
+
+	
+
+
+
+
+
+
+		
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		allshow:false,
+      		bgshow:false
+      		
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        checknum(e){
+        this.shoparr[e].show=!this.shoparr[e].show
+
+        },
+        call(){
+        		this.bgshow=true
+        },
+        closeviewbg(){
+        		this.bgshow=false
+
+        },
+        goto(e){
+        	window.location.href=e
+        
+
+        },
+         callphone(){
+          window.location.href = "tel:10086";
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>

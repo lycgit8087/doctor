@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>我的生活</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+
+	</head>
+
+	<body style="background: #f5f5f5">
+		<div id="app">
+
+		<div class="header_view" >
+        <img src="../img/left.png" onclick="backto()">
+        <p>待付款订单详情</p>
+        <p class="right_header_text">取消订单</p>
+        
+      </div>
+
+      <!-- 提示 -->
+
+      <div class="bgback" v-if="bgshow"  v-cloak>
+
+  <div class="call" >
+    <div>
+      <p>18017360909</p>
+    <p>确认要拨打电话嘛？</p>
+      
+    </div>
+    
+
+    <div>
+      
+      <p @click="closeviewbg">取消</p>
+      <p @click='callphone'>确定</p>
+
+    </div>
+
+   </div>
+
+</div>
+
+
+      <div class="detail_order_top">
+      	<img src="../img/bluewhie.png">
+      	<div>
+      		<p>【鼻综合】上海鼻综合整形名医上海鼻综
+ 上海鼻综合整形名医</p>
+      		<p>
+      			<span>￥5200</span>
+      			<span>x1</span>
+
+      		</p>
+
+      	</div>
+
+      	
+      </div>
+
+      <div class="detail_paynow">
+      	立即付款
+      </div>
+
+      <div class="order_detail_num">
+
+      	<p>
+      		<span>订单编号：</span>
+      		<span>345678976548766</span>
+
+      	</p>
+
+      	<p>
+      		<span>下单时间：</span>
+      		<span>2018-09-09 10:09:09</span>
+
+      	</p>
+      	
+
+      </div>
+
+				<div class="detail_order_message">
+				<p class="time_out">限时秒杀</p>
+
+				<div>
+					<p>
+					<span>预约金合计：</span>
+					<span>￥23456</span>
+				</p>
+				<p>
+					<span>尾款合计：</span>
+					<span>￥23456</span>
+				</p>
+				<p>
+					<span>联系人：</span>
+					<span>￥23456</span>
+				</p>
+				<p>
+					<span>联系电话：</span>
+					<span>￥23456</span>
+				</p>
+				<p>
+					<span>客服电话：</span>
+					<span @click="call">400-098-0988</span>
+				</p>
+				<p>
+					<span>工作时间：</span>
+					<span>每天9:00-22:00</span>
+				</p>
+					
+				</div>
+					
+
+					
+				</div>
+		
+
+		
+
+
+
+		
+		
+
+
+
+		
+
+
+		
+
+	
+
+
+
+
+
+
+		
+			
+			
+			
+
+		</div>
+
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/commom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/flexible.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+    new Vue({
+      el: '#app',
+      data(){
+      	return{
+      		selected:[],
+      		id:1,
+      		curnum:1,
+      		allshow:false,
+      		bgshow:false
+      		
+      	}
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+        },
+        checknum(e){
+        this.shoparr[e].show=!this.shoparr[e].show
+
+        },
+        call(){
+        		this.bgshow=true
+        },
+        closeviewbg(){
+        		this.bgshow=false
+
+        },
+        goto(e){
+        	window.location.href=e
+        
+
+        },
+         callphone(){
+          window.location.href = "tel:10086";
+        }
+      }
+    })
+  </script>
+
+	</body>
+
+</html>
