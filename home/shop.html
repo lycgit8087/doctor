@@ -243,19 +243,22 @@
         handleClick: function() {
           this.$toast('Hello world!')
         },
+        // 单选
         checknum(e){
 
           if(this.shoparr[e].show){
             this.allnum-=this.shoparr[e].num*this.shoparr[e].pay
           }else{
         this.allnum+=this.shoparr[e].num*this.shoparr[e].pay
-            
+
           }
 
 
         this.shoparr[e].show=!this.shoparr[e].show
 
         },
+
+        // 减
         cutnum(e){
         	if(this.shoparr[e].num>0){
         	this.shoparr[e].num--
@@ -273,6 +276,8 @@
         	
         	
         },
+
+        // 加
         addnum(e){
         	this.shoparr[e].num++
 
@@ -289,6 +294,8 @@
         goto(e){
           window.location.href=e
         },
+
+        // 全选
         checkallshop(){
         	
 
