@@ -244,6 +244,15 @@
           this.$toast('Hello world!')
         },
         checknum(e){
+
+          if(this.shoparr[e].show){
+            this.allnum-=this.shoparr[e].num*this.shoparr[e].pay
+          }else{
+        this.allnum+=this.shoparr[e].num*this.shoparr[e].pay
+            
+          }
+
+
         this.shoparr[e].show=!this.shoparr[e].show
 
         },
@@ -252,20 +261,30 @@
         	this.shoparr[e].num--
 
         	}
-        	let numarr=0;
-        	for(let i=0;i<this.shoparr.length;i++){
-        		numarr+=this.shoparr[i].pay*this.shoparr[i].num
-        	}
-        	this.allnum=numarr
+          if(this.shoparr[e].show){
+          let numarr=0;
+
+            for(let i=0;i<this.shoparr.length;i++){
+            numarr+=this.shoparr[i].pay*this.shoparr[i].num
+          }
+          this.allnum=numarr
+
+          }
+        	
         	
         },
         addnum(e){
         	this.shoparr[e].num++
-        	let numarr=0;
-        	for(let i=0;i<this.shoparr.length;i++){
-        		numarr+=this.shoparr[i].pay*this.shoparr[i].num
-        	}
-        	this.allnum=numarr
+
+          if(this.shoparr[e].show){
+            let numarr=0;
+          for(let i=0;i<this.shoparr.length;i++){
+            numarr+=this.shoparr[i].pay*this.shoparr[i].num
+          }
+          this.allnum=numarr
+
+          }
+        	
         },
         goto(e){
           window.location.href=e
@@ -274,20 +293,25 @@
         	
 
         	if(this.allshow){
-        	let numarr=0;
 
         		for(let i=0;i<this.shoparr.length;i++){
         		this.shoparr[i].show=false
-        		numarr+=this.shoparr[i].pay*this.shoparr[i].num
+        		
 
         	}
-        	this.allnum=numarr
+        	this.allnum=0
         	this.allshow=false
 
         	}else{
+          let numarr=0;
+
         		for(let i=0;i<this.shoparr.length;i++){
         		this.shoparr[i].show=true
+            numarr+=this.shoparr[i].pay*this.shoparr[i].num
+
         	}
+          this.allnum=numarr
+
         	this.allshow=true
         	}
         }
