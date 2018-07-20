@@ -18,9 +18,17 @@
 	<body style="background: #f5f5f5">
 		<div id="app">
 
-
-		<div class="sear_header_view" >
+      <div class="header_view" >
         <img src="../img/left.png" onclick="backto()">
+        <p>医生列表</p>
+        <p></p>
+        
+      </div>
+
+
+		<div class="sear_header_view" style="top:1.067rem" >
+        <!-- <img src="../img/left.png" onclick="backto()"> -->
+        <p></p>
        	<input type="text" name="" placeholder="搜索你感兴趣的项目" v-model="inputvalue" :class=" changeinputnone?'changeinput':'' " @input="changeme">
         <p><img src="../img/big.png"></p>
         
@@ -28,14 +36,14 @@
 
 
 
-      <div class="seach_list">
+      <div class="seach_list" style="top:2.124rem">
 	      	<p v-for="(item,index) in iconlist" :class="item.pactvie?'pactive':''" @click="listclick(index)">
 	      	<span>{{item.text}}</span>
 			<img :src="item.url">
       		</p>
       </div>
 
-      <div class="sear_message" style="margin-top: 2.133rem">
+      <div class="sear_message" style="margin-top: 3.133rem">
       	
       	<div v-for="i in 5">
 

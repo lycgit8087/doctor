@@ -23,7 +23,7 @@
         <img src="../img/left.png" onclick="backto()">
         <p>会员名</p>
         <p>
-            <span v-if="showme" class="addname" >保存</span>
+            
         </p>
         
       </div>
@@ -32,10 +32,13 @@
 
       <div class="username_change">
         
-
-        <input type="text" v-model="value" name="" @focus="usernameshow" @blur="loseme">
+<mt-field  placeholder="请输入用户名" v-model="value" @input="usernameshow" @blur="loseme"></mt-field>
+        <!-- <input type="text" v-model="value" name="" @focus="usernameshow" @blur="loseme"> -->
       </div>
 
+
+
+          <span v-if="showme" class="addname" >保存</span>
       
 
 
