@@ -1006,7 +1006,9 @@ display: flex;
 	align-items: center;
 	margin-top: 1.067rem;
 	background: url(../img/smallbg.png) no-repeat;
-	background-size: 100% 100%
+	background-size: 100% 100%;
+	padding: 0.787rem 0;
+	box-sizing: border-box;
 }
 .dc_top>div{
 	width: 9.2rem;
@@ -5070,7 +5072,23 @@ font-size: 0.4rem;
 	bottom: 4.0rem;
 	font-size: 0.32rem;
 }
-
-{
-	font-size: 0.4rem
+.indexstar{
+	position: absolute;
+	right: 0.4rem;
+	top: 0.067rem;
+	display: flex;
+}
+.indexstar span{
+	display: flex;
+	width: 0.667rem;
+	height: 0.667rem;
+	margin-left: 0.213rem;
+	background-color:rgba(0,0,0,.4);
+	border-radius: 50%;
+	align-items: center;
+	justify-content: center;
+}
+.indexstar span img{
+	width: 0.4rem;
+	height: 0.4rem
 }
