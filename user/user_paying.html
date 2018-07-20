@@ -24,13 +24,15 @@
         
       </div>
 
-      <div class="paying">
+      <div class="paying" @click="goto('../H5/place.html')">
         
-        完善会员资料
+        请编辑收货地址
       </div>
 
       <div class="paying_input">
-        
+        <p>
+          完善会员资料
+        </p>
         <p>
           <span>真实姓名</span>
           <input type="text" v-model="username" placeholder="请输入您的姓名" @input="changeinput">
