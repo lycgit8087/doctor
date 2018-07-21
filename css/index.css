@@ -1101,9 +1101,12 @@ display: flex;
 .time_out:after{
 	position: absolute;
 	content: "";
-	width: 0.627rem;
+	width: 0.927rem;
+	height: 0.627rem;
 	right: -0.457rem;;
-	border-radius: 50%;
+	/*border-radius: 50%;*/
+	transform: rotate(130deg);
+	 transform: skew(0deg,30deg) rotate(130deg);
 	height: 0.627rem;
 	background: #ffffff
 }
