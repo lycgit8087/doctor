@@ -63,7 +63,7 @@
         <mt-swipe :auto="0" style="height: 6.253rem" :show-indicators="false"  @change="handleChange">
   <mt-swipe-item v-for="(item,index) in imgarr" :key="index"><img :src="item.url"></mt-swipe-item>
 </mt-swipe>
-      	<!-- <img src="../img/doctorman.jpg"> -->
+      	<!-- <img src="../img/doctorman.png"> -->
 
       	<div class="shopdetail_top" style="height: auto;">
       		<p>鼻综合】上海鼻综合整形名医上海鼻综合整形名医上海鼻综合整形名医</p>
@@ -73,7 +73,7 @@
       		</p>
       		<p style="display: flex;width: 100%;justify-content: space-between;font-size: 0.32rem;height: 0.8rem;align-items: center;">
       			<span style="color: #bebebe;">杭州市</span>
-      			<span style="color: #090909;">已预约:23</span>
+      			<span style="color: #090909;text-decoration: none;">已预约:23</span>
       		</p>
       	</div>
       	<div class="shopindex_evaluateto">
@@ -111,7 +111,7 @@
 
 
       	<div class="dot_shop">
-      			<img src="../img/doctorman.jpg">
+      			<img src="../img/doctorman.png">
       			<p>
       				<span>张林林</span>
       				<span>234案例</span>
@@ -212,7 +212,10 @@
       			</p>
       		</div>
       		
-      		<p><img src="../img/kefu.png"></p>
+      		<p style="flex-direction: column;"><img src="../img/iconeasy.png" style="width: 0.453rem;height: 0.32rem;margin-bottom: 0.2rem">
+            <span>咨询</span>
+
+          </p>
       	</div>
       	<div class="bug_two" @click="showme">加入购物车</div>
       	<div class="bug_there" @click="openbg">立即购买</div>
@@ -327,13 +330,13 @@
           allnum:3,
           imgarr:[
             {
-              url:'../img/doctorman.jpg'
+              url:'../img/doctorman.png'
             },
             {
-              url:'../img/doctorman.jpg'
+              url:'../img/doctorman.png'
             },
             {
-              url:'../img/doctorman.jpg'
+              url:'../img/doctorman.png'
             }
           ]
       	}

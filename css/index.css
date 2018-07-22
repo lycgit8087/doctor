@@ -10,7 +10,9 @@ body{
 	margin: 0
 }
 body p{
-	margin: 0
+	margin: 0;
+
+
 }
 #app{
 	padding-bottom: 1.6rem
@@ -115,7 +117,42 @@ body p{
 	flex-direction: column;
 	justify-content: space-around;
 	margin-bottom: 0.4rem;
+	position: relative;
 	
+}
+.lastime{
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 3.32rem;
+	height: 0.56rem;
+	background-color: rgba(254,94,103,.23);
+	border-radius: 0.253rem;
+	border: solid 0.013rem #fe5e67;
+	top: 1.153rem;
+	left: 0.44rem;
+	font-size: 0.267rem;
+	color: #090909
+
+}
+.timeover{
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 0.32rem;
+	color: #090909;
+	width: 1.067rem;
+	height: 1.067rem;
+	background-color: #fd84b9;
+	box-shadow: 0px 0.04rem 0.093rem 0px 
+		rgba(255, 255, 255, 0.35);
+	border: solid 0.013rem #fd84b9;
+	border-radius: 50%;
+	top: 2.907rem;
+	right: 0.507rem;
+	justify-content: center;
 }
 .image{
 	width: 95%;
@@ -138,15 +175,14 @@ body p{
 .time_out,.com_text{
 	width: 2.347rem;
 	height: 0.627rem;
-	background-image: linear-gradient(261deg, 
-		#fe9cc7 39%, 
-		#fd76b1 100%);
 		font-size: .8rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		font-size: 0.4rem;
 		position: relative;
+		background: url(../img/bian.png) no-repeat;
+		background-size: 100% 100%
 }
 .show_text{
 	display: flex;
@@ -1098,18 +1134,18 @@ display: flex;
 	position: relative;
 }
 
-.time_out:after{
+/*.time_out:after{
 	position: absolute;
 	content: "";
 	width: 0.927rem;
 	height: 0.627rem;
 	right: -0.457rem;;
-	/*border-radius: 50%;*/
+	border-radius: 50%;
 	transform: rotate(130deg);
 	 transform: skew(0deg,30deg) rotate(130deg);
 	height: 0.627rem;
 	background: #ffffff
-}
+}*/
 
 .anli{
 	width: 100%;
@@ -1119,7 +1155,7 @@ display: flex;
 	width: 100%;
 	height: 5.173rem;
 	position: relative;
-	background: url(../img/doctorman.jpg) no-repeat;
+	background: url(../img/doctorman.png) no-repeat;
 	background-size: 100% 100%;
 	margin-top: 0.4rem
 
@@ -3469,6 +3505,7 @@ font-size: 0.4rem
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+	
 
 }
 .last_sear_view p{
@@ -3495,7 +3532,7 @@ font-size: 0.4rem
 	width: 100%;
 	height: 100%;
 	position: fixed;
-	top: 2.133rem;
+	top: 3.133rem;
 	left: 0;
 	background-color: rgba(0,0,0,.22);
 	display: flex;
@@ -5097,3 +5134,26 @@ font-size: 0.4rem;
 	width: 0.4rem;
 	height: 0.4rem;
 }
+.top_icon p img{
+	width: 0.667rem;
+	height: 0.667rem
+}
+.shopdetail .mint-swipe img{
+	width: 100%;
+	height: 100%
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

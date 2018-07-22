@@ -38,7 +38,7 @@
   ]"   v-for="(i,index) in 4">
 
    <div class="scollview">  <span class="viewspan" :class="mystyle==index?'pplaveactive':'' "
-   @click="spancheck(index)"></span>  <div> <p><span>小明180****0909</span> <span>编辑</span>
+   @click="spancheck(index)"></span>  <div> <p><span>小明180****0909</span> <span @click="goto('addplace')">编辑</span>
 
       </p>
       <p>上海站北区皇上路30弄2号402室</p>

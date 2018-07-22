@@ -30,7 +30,7 @@
         <!-- <img src="../img/left.png" onclick="backto()"> -->
         <p></p>
        	<input type="text" name="" placeholder="搜索你感兴趣的项目" v-model="inputvalue" :class=" changeinputnone?'changeinput':'' " @input="changeme">
-        <p><img src="../img/big.png"></p>
+        <p @click="changelist"><img src="../img/big.png"></p>
         
       </div>
 
@@ -43,7 +43,7 @@
       		</p>
       </div>
 
-      <div class="sear_message" style="margin-top: 3.133rem">
+      <div class="sear_message" style="margin-top: 3.133rem" v-if="!listchange">
       	
       	<div v-for="i in 5">
 
@@ -109,6 +109,45 @@
       	</div>
 
       </div>
+
+
+
+
+
+      <!-- 列表切换 -->
+
+
+
+      <div class="member" v-if="listchange" style="margin-top: 3.133rem" >
+          <div v-for="i in 7">
+
+                <img src="../img/bluewhie.png">
+                <div>
+                  <p>
+                    【鼻综合】上海鼻综合整形名医
+ 上海鼻综合整形名医
+                  </p>
+                  <p>
+                    <span>郑林林 </span>
+                    <span>已预约:23</span>
+
+                  </p>
+
+                  <p>
+                    <span>
+                      
+                      <span>￥5200</span>
+                      <span>￥8600</span>
+
+                    </span>
+
+                  </p>
+                </div>
+            
+          </div>
+          
+
+        </div>
 
 
 
@@ -306,6 +345,7 @@
       				text:'3-5年'
       			}
       		],
+          listchange:false,
       		seryearold:[
       			{
       				text:'26-30'
@@ -362,6 +402,9 @@
       	}
       },
       methods: {
+        changelist(){
+          this.listchange=!this.listchange
+        },
         
        goto(e){
           window.location.href=e

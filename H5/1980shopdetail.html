@@ -107,9 +107,9 @@
       			<p>数量</p>
 
       			<p>
-      				<span>-</span>	
-      				<span>3</span>	
-      				<span>+</span>	
+      				<span @click="shoonumcut">-</span>	
+      				<span>{{shopnum}}</span>	
+      				<span @click="shoonumadd">+</span>	
 
       			</p>
       			
@@ -118,7 +118,7 @@
 
 
       		<div class="bug_shop" @click="goto('../user/user_paying.html')">
-      	￥1980 立即购买
+      	￥{{allmoney}} 立即购买
       </div>
       		
 
@@ -177,15 +177,18 @@
       		bgshow:false,
           nownum:1,
           allnum:3,
+          shopnum:0,
+          initnum:5200,
+          allmoney:0,
           imgarr:[
             {
-              url:'../img/doctorman.jpg'
+              url:'../img/doctorman.png'
             },
             {
-              url:'../img/doctorman.jpg'
+              url:'../img/doctorman.png'
             },
             {
-              url:'../img/doctorman.jpg'
+              url:'../img/doctorman.png'
             }
           ]
       	}
@@ -206,7 +209,21 @@
         },
        goto(e){
           window.location.href=e
-        }
+        },
+        shoonumcut(){
+          if(this.shopnum==0){
+            this.shopnum=0
+          }else{
+          this.shopnum--
+
+          }
+          this.allmoney=this.shopnum*this.initnum
+        },
+        shoonumadd(){
+          this.shopnum++
+          this.allmoney=this.shopnum*this.initnum
+          
+        },
       }
     })
   </script>

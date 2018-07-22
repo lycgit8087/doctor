@@ -45,7 +45,7 @@
 
 			<div class="user_text">
 				<p>我的订单</p>	
-				<p @click="goto('../user/user_order.html')">查看全部订单
+				<p @click="toorder(-1)">查看全部订单
 				<img src="../img/right.png" />
 
 				</p>	
@@ -55,7 +55,7 @@
 
 			<div class="user_list">
 				
-				<div v-for="item in imagrarr">
+				<div v-for="(item,index) in imagrarr" @click="toorder(index)">
 				<img :src="item.url" />
 					<p>{{item.text}}</p>
 
@@ -213,6 +213,18 @@
       methods: {
         handleClick: function() {
           this.$toast('Hello world!')
+        },
+        toorder(e){
+          console.log(e)
+          if(e==-1){
+            localStorage.ordernum=-1;
+          }else{
+            localStorage.ordernum=e;
+          }
+
+          
+           window.location.href="../user/user_order.html"
+
         },
         checknum(e){
         this.curnum=e;

@@ -37,7 +37,7 @@
  上海鼻综合整形名医</p>
 
         <p>
-          <span>￥5200</span>
+          <span>￥{{initnum}}</span>
           <span>
             <span @click="shoonumcut">-</span>
             <span>{{shopnum}}</span>
@@ -66,7 +66,7 @@
 
 
       <div class="shoppayto">
-        <p>总计：￥5538</p>
+        <p>总计：￥{{allnum}}</p>
         <p @click="showpay">立即支付</p>
       </div>
 
@@ -159,6 +159,8 @@
       		allshow:false,
       		showstyle:false,
       		card:'',
+          initnum:5200,
+          allnum:0,
       		city:'',
       		cardnum:'',
       		bank:'',
@@ -213,9 +215,12 @@
           this.shopnum--
 
           }
+          this.allnum=this.shopnum*this.initnum
         },
         shoonumadd(){
           this.shopnum++
+          this.allnum=this.shopnum*this.initnum
+          
         },
         showpay(){
           this.bgshowtwo=true
