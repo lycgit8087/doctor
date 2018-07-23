@@ -195,7 +195,7 @@ body p{
 	display: flex;
 	width: 95%;
 	height: 1.6rem;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 	margin: 0 auto;
 	background: #FFFFFF;
@@ -206,7 +206,6 @@ body p{
 .hide_name span{
 	display: flex;
 	height: 100%;
-	width: 33.3333%;
 	align-items: center;
 	font-size: 0.4rem;
 	color: #bebebe;;
@@ -4946,7 +4945,7 @@ font-size: 0.4rem;
 	height: 1.333rem;
 	position: fixed;
 	right: 0.4rem;
-	top: 14.667rem
+	bottom: 2.4rem
 }
 .nomore{
 	height: 0.8rem;
