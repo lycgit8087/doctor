@@ -217,7 +217,7 @@
 			</div>
 			<p>医生年龄</p>
 			<div>
-				<span v-for="(item,index) in seryearold" :class="year==index?'oldactive':'' "  @click="searyearold(index)">{{item.text}}</span>
+				<span v-for="(item,index) in seryearoldarr" :class="item.pan?'oldactive':'' "  @click="searyearold(index)">{{item.text}}</span>
 
 				
 				
@@ -351,24 +351,36 @@
       			}
       		],
           listchange:false,
-      		seryearold:[
+      		seryearoldarr:[
       			{
-      				text:'26-30'
+      				text:'26-30',
+              pan:false
+
       			},
       			{
-      				text:'31-35'
+      				text:'31-35',
+              pan:false
+
       			},
       			{
-      				text:'36-40'
+      				text:'36-40',
+              pan:false
+
       			},
       			{
-      				text:'41-45'
+      				text:'41-45',
+              pan:false
+
       			},
       			{
-      				text:'46-50'
+      				text:'46-50',
+              pan:false
+
       			},
       			{
-      				text:'50岁以上'
+      				text:'50岁以上',
+              pan:false
+
       			}
       		],
       		searsext:[
@@ -487,7 +499,7 @@
         		this.searsext[e].pan=!this.searsext[e].pan
         },
         searyearold(e){
-        		this.year=e
+        		this.seryearoldarr[e].pan=!this.seryearoldarr[e].pan
         },
         checkcityp(e){
         	this.cityp=e
