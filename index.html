@@ -15,6 +15,12 @@
 			margin: 0;
 			background: #ffffff
 		}
+		#app .mint-swipe-items-wrap > div.is-active{
+			display: flex;
+		}
+		#app .mint-swipe-items-wrap{
+			display: flex;
+		}
 	</style>
 	<body>
 		<div id="app">
@@ -63,7 +69,10 @@
 						<div class="hide_name">
 							<span>郑志王</span>
 							<span>还剩5个名额</span>
-							<span>￥5200/次</span>
+							<span>￥5200/次
+									<span style='display: flex;margin-left: 0.16rem;text-decoration: line-through;font-size: 0.24rem;color: #989898'>￥8600</span>
+							</span>
+
 
 						</div>
 						<span class="lastime">离开始还有1天13:03:19</span>
@@ -82,21 +91,8 @@
 
 <mt-swipe :show-indicators="false" style="width: 100%"  :auto="0">
   <mt-swipe-item style="display: flex;justify-content: space-around;width: 100%">
-  	<div v-for="i in 3" style="width: 30%" @click="goto('H5/shopindexping.html')">
-							<img src="img/bluewhie.png" class="pri_image" />
-
-							<p>上海鼻综合整形</p>
-							<p>医生名字</p>
-							<p>￥5200/次
-									<span style="text-decoration: line-through;font-size:0.24rem;color:#989898">
-										￥8600
-									</span>
-							</p>
-
-						</div>
-  </mt-swipe-item>
-  <mt-swipe-item style="display:flex;justify-content: space-around;width: 100%">
-  	<div v-for="i in 3" style="width: 30%"  @click="goto('H5/shopindexping.html')">
+  		<div style="display:flex;width:100%;justify-content: space-between;">
+  		<div v-for="i in 3" style="width: 30%;"  @click="goto('H5/shopindexping.html')">
 							<img src="img/bluewhie.png" class="pri_image" />
 
 							<p>上海鼻综合整形</p>
@@ -104,9 +100,12 @@
 							<p>￥5200/次</p>
 
 						</div>
+
+  	</div>
   </mt-swipe-item>
   <mt-swipe-item style="display:flex;justify-content: space-around;width: 100%">
-  	<div v-for="i in 3" style="width: 30%"  @click="goto('H5/shopindexping.html')">
+  		<div style="display:flex;width:100%;justify-content: space-between;">
+  		<div v-for="i in 3" style="width: 30%;"  @click="goto('H5/shopindexping.html')">
 							<img src="img/bluewhie.png" class="pri_image" />
 
 							<p>上海鼻综合整形</p>
@@ -114,6 +113,22 @@
 							<p>￥5200/次</p>
 
 						</div>
+
+  	</div>
+  </mt-swipe-item>
+  <mt-swipe-item style="display:flex;justify-content: space-around;width: 100%">
+  	<div style="display:flex;width:100%;justify-content: space-between;">
+  		<div v-for="i in 3" style="width: 30%;"  @click="goto('H5/shopindexping.html')">
+							<img src="img/bluewhie.png" class="pri_image" />
+
+							<p>上海鼻综合整形</p>
+							<p>医生名字</p>
+							<p>￥5200/次</p>
+
+						</div>
+
+  	</div>
+  	
   </mt-swipe-item>
   
 </mt-swipe>

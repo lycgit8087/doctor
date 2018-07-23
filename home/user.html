@@ -216,7 +216,12 @@
         },
         toorder(e){
           console.log(e)
-          if(e==-1){
+          if(e==4){
+           window.location.href="../user/user_addrefun.html"
+            
+
+          }else{
+            if(e==-1){
             localStorage.ordernum=-1;
           }else{
             localStorage.ordernum=e;
@@ -224,6 +229,10 @@
 
           
            window.location.href="../user/user_order.html"
+
+          }
+
+          
 
         },
         checknum(e){

@@ -205,13 +205,13 @@
 			</div>
 			<p>从业年限</p>
 			<div>
-				<span v-for="(item,index) in seryear" :class="oldyear==index?'oldactive':'' " @click="searyear(index)">{{item.text}}</span>
+				<span v-for="(item,index) in seryeararr" :class="item.pan?'oldactive':'' " @click="searyear(index)">{{item.text}}</span>
 
 				
 			</div>
 			<p>医生性别</p>
 			<div>
-				<span v-for="(item,index) in searsext" :class="sex==index?'oldactive':'' "  @click="searsex(index)">{{item.text}}</span>
+				<span v-for="(item,index) in searsext" :class="item.pan?'oldactive':'' "  @click="searsex(index)">{{item.text}}</span>
 
 				
 			</div>
@@ -334,15 +334,20 @@
       		ser_oneshow:false,
       		ser_twoshow:false,
       		ser_thereshow:false,
-      		seryear:[
+      		seryeararr:[
       			{
-      				text:'10年以上'
+      				text:'10年以上',
+              pan:false
       			},
       			{
-      				text:'5-10年'
+      				text:'5-10年',
+              pan:false
+
       			},
       			{
-      				text:'3-5年'
+      				text:'3-5年',
+              pan:false
+
       			}
       		],
           listchange:false,
@@ -368,11 +373,15 @@
       		],
       		searsext:[
       			{
-      				text:"男"
+      				text:"男",
+              pan:false
+
       			
       			},
       			{
-      				text:"女"
+      				text:"女",
+              pan:false
+
       			
       			},
 				],
@@ -472,10 +481,10 @@
 
         },
         searyear(e){
-        		this.oldyear=e
+        		this.seryeararr[e].pan=!this.seryeararr[e].pan
         },
         searsex(e){
-        		this.sex=e
+        		this.searsext[e].pan=!this.searsext[e].pan
         },
         searyearold(e){
         		this.year=e

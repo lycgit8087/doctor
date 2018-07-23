@@ -78,7 +78,7 @@
       <div class="bgback" v-if="bgshow">
       	
 
-      	<div class="bg_shop">
+      	<div class="bg_shop" style="height:5.72rem">
       		<img src="../img/close.png" @click="closebg">
 
 
@@ -87,8 +87,9 @@
       			<div>
       				<p>【鼻综合】上海鼻综合整形名医
  上海鼻综合整形名医</p>
+ <p style="font-size: 0.4rem;color: #090909">郑玲玲</p>
+
  <p>已选：水光针-12针</p>
- <p>库存：87</p>
       			</div>
       			
 
@@ -103,18 +104,18 @@
 
       		</div>
 
-      		<div class="shop_num">
-      			<p>数量</p>
+      		<!-- <div class="shop_num"> -->
+      			<!-- <p>数量</p>
 
       			<p>
       				<span @click="shoonumcut">-</span>	
       				<span>{{shopnum}}</span>	
       				<span @click="shoonumadd">+</span>	
 
-      			</p>
+      			</p> -->
       			
 
-      		</div>
+      		<!-- </div> -->
 
 
       		<div class="bug_shop" @click="goto('../user/user_paying.html')">
@@ -179,7 +180,7 @@
           allnum:3,
           shopnum:0,
           initnum:5200,
-          allmoney:0,
+          allmoney:5200,
           imgarr:[
             {
               url:'../img/doctorman.png'

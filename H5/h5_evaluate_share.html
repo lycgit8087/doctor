@@ -53,14 +53,14 @@
 
 
           <p>
-            <img src="../img/eglass-star.png" v-for="i in 5">
+            <img src="../img/eglass-star.png" v-for="i in 5" >
 
           </p>
         </div>
 
         <div class="detail_order_top_good_image">
           
-          <img src="../img/zipai.jpg" v-for="i in 8">
+          <img   :src="item.url" v-for="item in imagearr" @click="showimage(item.url)">
 
         </div>
         <div class="detail_order_top_good_text" >
@@ -164,6 +164,15 @@
           
 
         </div>
+
+        <div class="bgback" v-if="bgshow">
+      <div class="image_doctor_big" @click="hidebg">
+        
+        <img :src="bg_doctor_image">
+      </div>
+
+    </div>
+
      
 
       
@@ -215,7 +224,37 @@
       		id:1,
       		curnum:1,
       		allshow:false,
-      		bgshow:false
+          bg_doctor_image:"",
+          bgshow:false,
+          imagearr:[
+            {
+              url:'../img/zipai.jpg'
+            },
+             {
+              url:'../img/zipai.jpg'
+            },
+             {
+              url:'../img/zipai.jpg'
+            },
+             {
+              url:'../img/zipai.jpg'
+            },
+             {
+              url:'../img/zipai.jpg'
+            },
+             {
+              url:'../img/zipai.jpg'
+            },
+             {
+              url:'../img/zipai.jpg'
+            },
+             {
+              url:'../img/zipai.jpg'
+            }
+            
+            ],
+            
+
       		
       	}
       },
@@ -223,15 +262,11 @@
         handleClick: function() {
           this.$toast('Hello world!')
         },
+        seeimage(){
+          console.log(55)
+        },
         checknum(e){
         this.shoparr[e].show=!this.shoparr[e].show
-
-        },
-        call(){
-        		this.bgshow=true
-        },
-        closeviewbg(){
-        		this.bgshow=false
 
         },
         goto(e){
@@ -239,8 +274,15 @@
         
 
         },
+        showimage(e){
+          this.bgshow=true
+          this.bg_doctor_image=e
+        },
          callphone(){
           window.location.href = "tel:10086";
+        },
+         hidebg(){
+          this.bgshow=false
         }
       }
     })

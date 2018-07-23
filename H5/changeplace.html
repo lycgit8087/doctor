@@ -19,49 +19,50 @@
 		<div id="app" class="place">
 				<div class="header_view" >
         <img src="../img/left.png" onclick="backto()">
-        <p>收货地址</p>
-        <p></p>
+        <p>编辑收货地址</p>
+        <p ></p>
         
       </div>
 
 
 
-<div style="height: 1.067rem"></div>
+<div class="cash_list" style="margin-top: 1.2rem;height: 4.407rem;justify-content: space-between;padding-bottom: 0">
+	<div style="justify-content: space-between;">
+		<p>姓名</p>
+		<input type="text" name="" placeholder="请输入您的姓名" @input="changeinput" v-model='username'>
 
-<mt-cell-swipe
-  :right="[
-    {
-      content: '删除',
-      style: { background: 'red', color: '#fff',width:'2.16rem',display:'flex'  },
-      handler: () => deleteSection()
-    }
-  ]"   v-for="(i,index) in 4">
+	</div>
+	<div style="justify-content: space-between;">
+		<p>电话</p>
+		<input type="text" name="" placeholder="请输入您的电话" @input="changeinput" v-model='phone'>
 
-   <div class="scollview">  <span class="viewspan" :class="mystyle==index?'pplaveactive':'' "
-   @click="spancheck(index)"></span>  <div> <p><span>小明180****0909</span> <span @click="goto('changeplace.html')">编辑</span>
+	</div>
+	<div style="justify-content: space-between;">
+		<p>城市</p>
+		<input type="text" name="" placeholder="请选择您的城市" @input="changeinput" v-model='money'>
 
-      </p>
-      <p>上海站北区皇上路30弄2号402室</p>
-    </div>
+	</div>
+  <div style="justify-content: space-between;">
+    <p>详细地址</p>
+    <input type="text" name="" placeholder="请输入详细地址" @input="changeinput" v-model='money'>
 
-    
   </div>
-    
 
-  </mt-cell-swipe>
 
-<!-- <div class="checkplace" @click="spancheck">
+</div>
+
+<div class="checkplace" @click="spancheck">
   
   <span :class="spanif?'plaveactive':'' "></span>
   <p>设为默认地址</p>
-</div> -->
+</div>
 
 
 
-<div class="tosend" :class="showstyle?'toactive':'' "  style="margin-top: 2.787rem;background-color: #fd84b9;" @click="goto('addplace.html')">
+<div class="tosend" :class="showstyle?'toactive':'' " @click="tosend" style="margin-top: 2.787rem;background-color: #fd84b9;">
 	
 
-新增地址
+保存并使用
 </div>
 
 
@@ -125,49 +126,12 @@
       		phone:'',
       		cash:'',
       		bgshow:false,
-          spanif:false,
-          startX: 0,       //触摸位置
-          moveX: 0,       //滑动时的位置
-          disX: 0,       //移动距离
-          txtStyle: '',
-          delWidth: 200,
-          top: '',
-          zIndex: 'z-index:-1',
-          mystyle:-1,
-          startX : 0 ,
-          endX : 0 ,
+          spanif:false
 
       		
       	}
       },
-      created() {
-      this.rightButtons = [
-        {
-          content: '删除',
-          style: { background: 'red', color: '#fff' },
-        }
-      ];
-    },
       methods: {
-     deleteSection(){
-    this.$toast('删除了')
-     }, 
-            
-            
-            showdele(){
-
-            },
-
-
-
-            skip(){
-  if( this.checkSlide() ){
-  this.restSlide();
-      }else{
-  alert('You click the slide!')
-      }
-      },
-
         handleClick: function() {
           this.$toast('Hello world!')
         },
@@ -197,9 +161,8 @@
         hideme(){
         	this.bgshow=false
         },
-        spancheck(e){
-
-          this.mystyle=e
+        spancheck(){
+          this.spanif=!this.spanif
         }
       }
     })
