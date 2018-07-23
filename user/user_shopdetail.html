@@ -97,9 +97,9 @@
       			<p>数量</p>
 
       			<p>
-      				<span>-</span>	
-      				<span>3</span>	
-      				<span>+</span>	
+      				<span @click="cutnum">-</span>	
+      				<span>{{initnum}}</span>	
+      				<span @click="addnum">+</span>	
 
       			</p>
       			
@@ -109,7 +109,7 @@
 
       		<div class="bug_shop">
       	
-      	￥1980 立即购买
+      	￥{{allmoney}} 立即购买
       </div>
       		
 
@@ -168,6 +168,9 @@
       		bgshow:false,
           nownum:1,
           allnum:3,
+          initnum:0,
+          initmoney:5200,
+          allmoney:0,
           imgarr:[
             {
               url:'../img/doctorman.png'
@@ -191,6 +194,19 @@
         handleChange(e){
             console.log(e)
             this.nownum=e+1
+        },
+        cutnum(){
+          if(this.initnum==0){
+
+          }else{
+          this.initnum=this.initnum-1
+          this.allmoney=this.initmoney*this.initnum
+
+          }
+        },
+        addnum(){
+          this.initnum=this.initnum+1
+          this.allmoney=this.initmoney*this.initnum
         },
         openbg(){
         	this.bgshow=true
