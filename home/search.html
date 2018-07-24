@@ -168,7 +168,7 @@
 <div class="sear_bgback_two" v-if="ser_twoshow" >
 
 	<div class="city_left">
-		<p v-for='(item,index) in citylist' :class="cityp==index?'citypactive':'' " @click="checkcityp(index)">{{item.text}}</p>
+		<p v-for="(item,index) in citylist" :class="cityp==index?'citypactive':'' " @click="checkcityp(index)">{{item.text}}</p>
 
 	</div>
 	<div class="city_right">
